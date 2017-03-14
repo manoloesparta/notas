@@ -1,0 +1,36 @@
+La funcion range() genera un arrays con numeros de el 0 hasta uno menos del indicado
+range(10) = [0,1,2...9]
+
+Los flotantes no son numeros exactamanete precisos a partir del decimal 15 
+
+Libreria random con la funcion .randrange() que genera un numero aleatorio de cierto a numero a otro menos uno
+random.randrange(1,51)
+
+continue es una keyword que se usa en ciclos o loops donde que se salte el siguiente codigo y repita el ciclo al contrario de break que rompe el ciclo y no se vuelve ejecutar
+
+Si usamos print con end="" al final no nos va poner un salto de linea
+print(' ', end="")
+
+Para manejar errores en python se usan las palabras try y except, generalmente dentro de un ciclo while, except puede venir con un error en especifico pero tambien puede venir sin nada, asi
+while True:
+	try:
+		<codigo>
+	except <Error>:
+		<codigo>
+	except:
+		<codigo>
+
+Cuando tenemos un string podemos acceder a cada caracter con unos corchetes colocando su numero correspondiente teniendo en cuente que la primera letra es 0, usamos el -1 para referirnos al ultimo caracter tambien podemos utlizar los dos puntos : para hacer de un caracter hasta otro y si lo dejamos vacio es el string completo
+string[-1]
+string[2:3]
+string[1:]
+string[:4]
+string[:]
+
+Podemos efectuar for loops en string tambien para hacer un display de letra por letra
+for char in string:
+	print(char)
+
+La funcion range puede tener hasta 3 parametros, el 1ero significa desde que numero tiene que contar, el 2do hasta que numero, y el 3ro de cuanto en cuanto
+for i in range(4,10,2):
+	print(i)

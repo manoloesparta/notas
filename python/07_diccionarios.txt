@@ -1,0 +1,41 @@
+Un diccionario es como una lista pero esta tu le indicas un index o llave hacia un valor
+
+Para declarar un diccionario:
+
+diccionario = {'llave':'valor', 'llave2':'valor2'}
+
+Para acceder a un valor dentro de un diccionario es igual que una lista
+
+diccionario['llave']
+
+Y para cambiar un valor dentro de el 
+
+diccionario['llave'] = 'nuevo valor'
+
+Cuando vas a imprimir un diccionario puede que no aparezca en el orden que esperabas porque no son secuenciales
+
+Para checar si hay una llave dentro de un diccionario, usamos el keyword in asi y va devolver True o False
+
+'llave' in diccionario
+
+Para que un diccionario nos devuelva las llaves o valores de un diccionario usamos las siguientes funciones
+
+diccionario.values()
+diccionario.keys()
+
+Para imprimir un diccionario con un ciclo for ambos valores usamos
+
+for k,v in diccionario.items():
+	print(k,v)
+
+Cuando queremos saber si hay una llave dentro de un diccionario usamos .get() que lleva 2 parametros uno que busca la llave y otro para que devovler si no la encuentra
+
+diccionario.get('llave','No esta aqui')
+
+Para borrar llaves con sus valores en un diccionario usamos del 
+
+del diccionario['llave']
+
+Para borrar todos los valores y llaves de un diccionario usamos la funcion .clear()
+
+diccionario.clear()

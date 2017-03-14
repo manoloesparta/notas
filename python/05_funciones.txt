@@ -1,0 +1,15 @@
+Para acceder una varibale global dentro de una funcion y poder cambiar su valor globalmente tenemos que invocarla con la palabra clave global
+def funcion():
+	global var_global
+	var_global = 0
+
+Cuando retornamos dos o mas valores nos devuelve una lista la cual podemos unir con .join() o podemos asignar a varios valores
+def a():
+	return 1,2
+var1,var2 = a()
+
+Cuando no sabemos cuantos argumentos vamos a tener usamos un splat opertator o operador de propagacion solamente se pone un * antes de poner el nombre del parametro
+def funcion(*arg):
+	return 0
+
+Si creamos una funcion main y la colocamos hasta el final va a ser lo unico que se va ejecutar en el programa a menos de que se invoquen otras funciones

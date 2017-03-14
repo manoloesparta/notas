@@ -1,0 +1,28 @@
+Una lista son varios valores guardados en una variable que se define con corchetes [] puede tener todo tipo de datos
+
+Podemos usar la funcion range para por ejemplo hacer una lista que del 1 al 10 pror ejemplo:
+variable = list(range(10))
+
+Para saber si un valor esta en una lista usamos la keyword in
+valor in lista
+
+Para agregar un valor a nuestra lista utilizamos la funcion .append() y se agrega al final de la lista
+lista.append(valor)
+
+.sort(): esto te ordena lista de menor a mayor valor
+.reverse(): esto te ordena lista de mauor a menor valor
+
+Para agregar valores a una lista en cierto lugar y cierto valro usamos la funcion insert() asi
+lista.insert(index, valor)
+
+Para eliminar un valor sin importar su index usamos la funcion la funcion .remove()
+lista.remove(valor)
+
+Para eliminar una posicion sin importar su valor usamos la funcion .pop()
+lista.pop(index)
+
+Una list comprehension es una lista con valores que se crea mediante ciclos dentro de la misma declaracion de una lista por ejemplo si quisiera crear una lista de puros numeros pares usaria el siguiente codigo
+lista = [i*2 for i in range(10)]
+
+Una lista multidimensional es una lista que tiene listas adentro por ejemplo si quiere una lista que adentro tenga 10 listas con 3 elementos que cada uno sea un 0 dentro usaria
+lista = [[0]*3 for i in range(10)]

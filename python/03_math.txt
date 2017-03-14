@@ -1,0 +1,21 @@
+Existe una libreria llamada math llena de funciones que hacen calculos, hay funciones como:
+.ceil(): redondear arriba
+.floor(): redondear abajo
+.fabs(): convierte a positivo
+.factorial(): saca factorial, multiplica todos los numeros que hay debajo
+.fmod(): sirve igual que el modulo
+.trunc(): convierte a int
+.pow(): potencia
+.sqrt(): raiz cuadrada
+.pi: es pi <no funcion>
+.exp(): exponente
+.degrees(): convierte a grados
+.radians(): convierte a readianes
+
+Hay una libreria que se llama decimal con la que se puede hacer operaciones con flotantes sin errores con su funcion Decimal()
+sum += Decimal(0.1)
+
+Cada caracter tiene su valor en unicode el cual podemos ver con las funciones ord() que hace de caracter a unicode y chr() que hace de unicode a caracter 
+A-Z 65-90, a-z 97-122
+ord("A")
+chr(65)

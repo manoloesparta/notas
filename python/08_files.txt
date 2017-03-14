@@ -1,0 +1,37 @@
+Para manipular archivos mas facilmente importamos un modulo/libreia llamada os asi que la importamos primero
+
+import os
+
+Veamos el siguiente codigo
+
+with open('file.txt', mode='w', encoding='utf-8') as file:
+	file.write('Texto\n')
+
+Tenemos la keyword with que lo que hace es cuando abramos un archivo y se nos produzca un error en el programa lo cierre automaticamente, depues viene la funcion open que abre el archivo 'file.txt' con los parametros mode='w' que significa que remplaze todo lo del archivo por lo siguiente si quisieramos agregar algo usariamos mode='a' y encoding='utf-8' son los tipos de caracteres. Usamos una variable/apodo llamdo file para referirnos a todo eso, y dentro del archivo simplemente escribimos con la funcion .write() la palabra 'Texto'
+
+Para leer un archivo no tenemos que especificar mode, pero hay diferentes maneras de leer un archivo con la funciones
+
+.read(): lee el archivo hasta un \n en un string
+.readline(): lee todo el archivo en un string
+.readlines(): lee todo el archivo en una lista
+
+Existen metodos para saber datos sobre un archivo como
+
+.closed: que dice si el archivo esta cerrado o abierto
+.name: que dice el nombre del archivo
+.mode: de que manera se abrio la ultima vez
+
+Con la libreria os tenemos funciones como:
+
+os.rename(): cambia el nombre a un archivo
+os.remove(): borra un archivo
+os.mkdir(): crea un directorio
+os.chdir(): cambia de directorio
+os.getcwd(): imprime el directorio donde estamos
+os.rmdir(): borra un directorio
+
+Existen otra cosa que se parece mucho a las listas la diferencia mas grande es que no puedes agregar y eliminar elementos de ellos se llaman tupla y se declaran asi
+
+tupla = (1,2,3)
+
+Lo conveniente de las tuplas es que gastan menos memoria

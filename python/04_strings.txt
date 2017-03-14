@@ -1,0 +1,32 @@
+Funciones solo para strings
+
+.lstrip(): quita todos los espacios en blanco del lado izquierdo
+.rstrip(): quita todos los epacios en blanco del lado derecho
+.strip(): quita todos los espacios en blanco de ambos lados
+.capitalize(): la primera letra la vuelve mayuscula
+.upper(): todas las letras se hacen mayusculas
+.lower(): todas las letras se vuelven minusculas
+
+Cuando tenemos una lista con un monton de strings los podemos concatenar cada uno como un string con un separadaor definido con la funcion
+' '.join(lista) #concatena todos los strings poniendo un espacio entre ellos
+
+Para una convertir una string en una lista usamos la funcion .split() la cual por defecto separa los string por espacios, pero le puedes definir otro elemento
+string.split(' ')
+
+Para saber cuantas veces se repite un caracter o una serie de caracteres usamos la funcion .count() la cual solo devuelve cuantos habia
+string.count("c")
+
+Para que nos devuelve el lugar donde se encuentra una caracter o serie de caracteres usamos la funcion .find() la cual solo va devolver el posicion de la primera que encuentre
+string.find("c")
+
+Para remplazar cierto caracter o serie de caracteres usamoz la funcion .replace() la cual toma dos parametros una que indica que tiene que ser remplazado y la otra con que
+string.replace('remplazado','remplazador')
+
+Tambien tenemos funciones que nos permiten saber de que esta hecho un string, si se cumple devulve el valor True y de lo contrario devuelve False, estan las funciones:
+
+.isalnum(): checha si el string son numeros o letras
+.isalpha(): checa si el string son letras
+.isdigit(): checa si el string son numeros
+.islower(): checa si el string son minusculas
+.isupper(): checha si el string son mayusculas
+.isspace(): checa si el string es un espacio

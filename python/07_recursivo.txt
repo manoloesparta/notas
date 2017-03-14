@@ -1,0 +1,10 @@
+Una funcion recursiva es una funcion donde se invoca si misma dentro de ese misma funcion por ejemplo esta es un funcion recursiva donde saca la factorial de un numero
+
+def factorial(num):
+	if num<=1:
+		return 1
+	else:
+		result = num * factorial(num-1)
+		return result
+
+La misma funcion es invocada dentro de de la funcion

@@ -1,0 +1,11 @@
+Se puede concatenar strings en python tambien usando una coma 
+print("a",a)
+
+No nombrar variables con el nombre and, del, from, not, while, as, elif, global, or, with, assert, else, if, pass, yield, break, except, import, print, class, exec, in, raise, continue, finally, is, return, def, for, lambda
+
+Otra forma de imprimir variables dentro de un string es asi, es una forma parecida a printf() de C/C++
+print("{} {}".format(var,var2))
+
+Existen ciclos for que repiten una accion con un valor temporal que se define con un array
+for i in [1,2,3,4,5]:
+	print(i)
