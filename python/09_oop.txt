@@ -1,1 +1,38 @@
- 
+En programacion orientada a objetos se caracterisa por que todo se maneja por objetos y comoo todos los objetos en la vida real tienen funciones y atributos
+
+Por ejemplo si hablamos de un perro como un objeto tendria atributos como nombre, altura, comida favorita etc tambien tuviera funciones como correr, caminar, ladrar
+
+En POO una funcion se le dice metodo y un atributo se le dice campo
+
+Veamos el siguiente codigo
+
+class Perro:
+	def __init__(self, nombre='', altura=''):
+		self.nombre = nombre
+		self.altura = altura
+
+	def correr(self):
+		print(self.nombre + 'esta corriendo')
+	def comer(self):
+		print(self.nombre + 'esta comiendo')
+	def ladrar(self):
+		print(self.nombre + 'esta ladrando')
+def main():
+	ricarda = Perro('Ricarda','1.2')
+	ricarda.ladra()
+	ricarda2 = Perro()
+	ricarda2.ladra()
+main()
+
+Lo que pasa es que primero declaramos un objeto/clase con la keyword class, la cual se llama Perro, despues generamos el primer metodo que siempre es obligatoria __init__ esta funcion se ejecuta primero que nada y le pasamos unos parametros el primero es self que se refiere a la misma clase, el segundo es nombre que le pusimos un default que es '' igual a altura.
+
+Despues dentro de la funcion declaramos que el campo nombre dentro de la misma clase va ser igual al nombre que le pasaron o el default, igual a la altura
+
+Luego declaramos unos metodos que lo unico que hacen es imprimer el nombre del perro mas un string 
+
+Fuera de la clase tenemos nuestra funcion main en la cual declaramos una variable que sea igual a la clase Perro pasandole los como parametros el nombre 'Ricarda' y la altura '1.2'
+
+ricarda.ladra() daria un output de 'Ricarda esta ladrando'
+
+ricarda2.ladra() daria output de
+'esta ladrando' porque no le pasamos ningun parametro y definimos valores defaults
