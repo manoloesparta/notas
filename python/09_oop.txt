@@ -36,3 +36,36 @@ ricarda.ladra() daria un output de 'Ricarda esta ladrando'
 
 ricarda2.ladra() daria output de
 'esta ladrando' porque no le pasamos ningun parametro y definimos valores defaults
+
+Una de las cosas mas utiles dentro de oop son los getters y setters que se explican con el siguiente codigo
+
+class Cuadrado:
+	def __init__(self, lado='0'):
+		self.lado = lado
+	@property
+	def lado(self):
+		return self.__lado
+	@height.setter
+	def lado(self, valor):
+		if valor.isdigit():
+			self.__lado = valor
+		else:
+			print('Solo numeros')
+	def area(self):
+		return int(self.__lado) * 2
+def main():
+	uncuadrado = Cuadrado()
+	lado = input()
+	uncuadrado.lado = lado
+	print(uncuadrado.area())
+main()
+
+Lo primero que hacemos es una clase llamada cuadrado y como sabemos los cuadrados tienen 4 lados de un mismo valor por lo que solo pedimos un valor
+
+Luego declaramos un getter con @property lo que nos permite a acceder a esos valores, dentro del mismo getter retornamos self.__lado tiene dos barras bajas para hacer el valro privado, osea que no se puede acceder
+
+Luego despues creamos un setter para el getter/propiedad de lado con @lado.setter donde lo unco que hace es verificar que solo entren numeros
+
+Al final de la clase tenemos un metodo que saca el area de el mismo cuadrado
+
+Ya despues afuera, en la funcion main creamos un objeto a partir de la clase, conseguimos un input para el lado luego lo pasamos a el objeto sin los parentesis porque declaramos los getters y setter 
