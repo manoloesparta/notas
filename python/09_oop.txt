@@ -45,7 +45,7 @@ class Cuadrado:
 	@property
 	def lado(self):
 		return self.__lado
-	@height.setter
+	@lado.setter
 	def lado(self, valor):
 		if valor.isdigit():
 			self.__lado = valor

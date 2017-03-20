@@ -1,4 +1,4 @@
-Una lista son varios valores guardados en una variable que se define con corchetes [] puede tener todo tipo de datos
+xUna lista son varios valores guardados en una variable que se define con corchetes [] puede tener todo tipo de datos
 
 Podemos usar la funcion range para por ejemplo hacer una lista que del 1 al 10 pror ejemplo:
 variable = list(range(10))
@@ -26,3 +26,7 @@ lista = [i*2 for i in range(10)]
 
 Una lista multidimensional es una lista que tiene listas adentro por ejemplo si quiere una lista que adentro tenga 10 listas con 3 elementos que cada uno sea un 0 dentro usaria
 lista = [[0]*3 for i in range(10)]
+
+.map() es una funcion/metodo que convierto los tipos de datos dentro de una lista en otro tipo de datos, se especifica se va ser str bool int float y se usa asi
+map(<conversion>,<lista>)
+map(str, [1,2,3,4,5])
