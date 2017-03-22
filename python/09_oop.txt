@@ -56,3 +56,129 @@ class Clase:
 	def __init__(self,valor):
 		self.valor = valor
 		Clase.variable += 1
+
+Como ya sabemos los metodos que creamos dentro de la clase el primer parametro que llevan es si mismo (self) el cual usamos self por convencion 
+
+Existen metodos de clase que sirven para no solo afectar instance variable sino para afectar a la clase en si (o todas las instance variables). Dentro de el mismo metodo es invocada la clase para crear un objeto
+
+class Clase:
+	def __init__(self, valor):
+		self.valor = valor
+	@classmethod
+	def from_class(cls, valor)
+		return cls(valor)
+var = Clase.from_class(valor)
+
+Esto nos puede ayudar al momento de hacer objetos a partir de strings
+
+En conclusion los @classmethods son metodos que crean un objeto dentro de la misma clase, siempre al principio lleva el parametro para referirse a la clase (cls)
+
+Tambien otro tipo de metodos son los metodos staticos que son metodos que no necesitan el primer parametro se self o cls, son como funciones dentro de una clase que tiene algun tipo de conexion con la clase
+
+class Clase:
+	def __init__(self, valor):
+		self.valor = valor
+	@staticmethod
+	def metodo_estatico(algo):
+		return algo
+var = Clase.metodo_estatico(algo)
+
+De una misma clase podemos crear subclases asi como hay personas que seria la clase existen hombres y mujeres que serian subclases
+
+Una subclase sirve para heredar los metodos y atributos de la clase madre
+
+class Clase:
+	def __init__(self, valor):
+		self.valor = valor
+class Subclase(Clase):
+	pass
+var = Subclase(valor)
+
+Lo unico que cambia para hacer una subclase es poner entre parentesis el nombre de la clase madre
+
+Al igual que una clase a la subclase le podemos agregar un meotodo init, para ponerle otros atributos, pero si la clase madre ya tiene una tenemos que hacer otra cosa
+
+class Clase:
+	def __init__(self, valor):
+		self.valor = valor
+class Subclase(Clase):
+	def __init__(self, valor, valor1):
+		super().__init__(valor)
+		self.valor1 = valor1
+var = Subclase(valor, valor1)
+
+La funcion super hace que nos referamos a la clase madre la cual se invoca con su metodo init el cual le pasa los parametros que pide la clase madre y luego los parametros que solo son de la subclase se especifican dentro de la funcion init
+
+isinstance(instance, clase): te dice si una instacia es de una clase
+issubclass(subclase, clase): te dice si una subclase es parte de una clase
+
+Existen unos metodos especiales que se les llaman dunder donde estan metodos como __init__ 
+
+Cuando vamos a imprimir una instance variable sin decir que atributo o metodo va ser nos va salir algo muy raro alfo como <__main__.Clase> algo asi asi que para evitar eso tenemos dos metodos especial
+
+__repr__: esto esta hecho para developers es como una explicacion del objeto
+__str__: esto es para mostrar que son los atributos del objeto
+
+class Clase:
+	def __init__(self, valor):
+		self.valor = valor
+	def __repr__(self):
+		return 'Clase('{}')'.format(valor)
+	def __str__(self):
+		return 'Esto es '{}' '.format(self.valor)
+var = Clase(valor)
+
+Existen otro tipo de funciones especial llamadas magicas por ejemplo
+
+print(1+1)
+print(int.__add__(1,2))
+
+Lo cual significa que que el hecho de sumar es un metodo de una clase que se llama int, entonces de la misma manera podemos definir como queremos que se sume nuestra clase y asi con otras funciones/operaciones/metodos
+
+Aqui se encuentran esos metodos
+
+https://docs.python.org/3/reference/datamodel.html#special-method-names
+
+Tambien podemos usar cosas que se llaman decorators que sirven para no cambiar mucho codigo cuando el proyecto es grande
+
+Un getter nos deja acceder una funcion como atributo
+
+class Clase:
+	def __init__(self, valor):
+		self.valor = valor
+	@property
+	def metodo(self, valor):
+		return self.valor + valor
+var = Clase(valor)
+print(var.metodo)
+
+Un setter nos deja cambiar el valor de un de un atributo mediante un metodo como si fuera un atributo
+
+class Clase:
+	def __init__(self, valor):
+		self.valor = valor
+	@property
+	def metodo(self):
+		return self.valor
+	@metodo.setter
+	def metodo(self, valor):
+		self.valor = valor
+var = Clase(valor)
+var.metodo = nuevo_valor
+
+Un deleter es para poder eliminar un atributo
+
+class Clase:
+	def __init__(self, valor):
+		self.valor = valor
+	@property
+	def metodo(self):
+		return self.valor
+	@metodo.setter
+	def metodo(self, valor):
+		self.valor = valor
+	@metodo.deleter
+	def metodo(self):
+		self.valor = None
+var = Clase(valor)
+del var.metodo
