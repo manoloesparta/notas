@@ -29,6 +29,7 @@ os.mkdir(): crea un directorio
 os.chdir(): cambia de directorio
 os.getcwd(): imprime el directorio donde estamos
 os.rmdir(): borra un directorio
+os.system(): ejecuta comandos
 
 Existen otra cosa que se parece mucho a las listas la diferencia mas grande es que no puedes agregar y eliminar elementos de ellos se llaman tupla y se declaran asi
 

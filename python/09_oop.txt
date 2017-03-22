@@ -1,71 +1,58 @@
-En programacion orientada a objetos se caracterisa por que todo se maneja por objetos y comoo todos los objetos en la vida real tienen funciones y atributos
+En programacion orientada a objetos se identifica por que todo se maneja por objetos y como todos los objetos en la vida real tambien tienen funciones/metodos y atributos
 
-Por ejemplo si hablamos de un perro como un objeto tendria atributos como nombre, altura, comida favorita etc tambien tuviera funciones como correr, caminar, ladrar
+Para crear un clase simplemente usamos la keyword class
 
-En POO una funcion se le dice metodo y un atributo se le dice campo
+class Clase:
+	pass
 
-Veamos el siguiente codigo
+a partir de una clase creamos instance variables que son variable hechas a semajnza de la clase
 
-class Perro:
-	def __init__(self, nombre='', altura=''):
-		self.nombre = nombre
-		self.altura = altura
+objeto1 = Clase()
+objeto2 = Clase()
 
-	def correr(self):
-		print(self.nombre + 'esta corriendo')
-	def comer(self):
-		print(self.nombre + 'esta comiendo')
-	def ladrar(self):
-		print(self.nombre + 'esta ladrando')
-def main():
-	ricarda = Perro('Ricarda','1.2')
-	ricarda.ladra()
-	ricarda2 = Perro()
-	ricarda2.ladra()
-main()
+Y podemos empezar a determinar los atributos
 
-Lo que pasa es que primero declaramos un objeto/clase con la keyword class, la cual se llama Perro, despues generamos el primer metodo que siempre es obligatoria __init__ esta funcion se ejecuta primero que nada y le pasamos unos parametros el primero es self que se refiere a la misma clase, el segundo es nombre que le pusimos un default que es '' igual a altura.
+objeto1.atributo = 'String1'
+objeto2.atributp = 'String2'
 
-Despues dentro de la funcion declaramos que el campo nombre dentro de la misma clase va ser igual al nombre que le pasaron o el default, igual a la altura
+Pero hacer esto para declara cada atributo no es buena idea porque hace que escribamos mucho codigo
 
-Luego declaramos unos metodos que lo unico que hacen es imprimer el nombre del perro mas un string 
+Entonces dentro de la clase empezamos a definir los atributos en un funcion llamada __init__ que es la que se ejecuta cuando creamos un objeto a modelo de la clase
 
-Fuera de la clase tenemos nuestra funcion main en la cual declaramos una variable que sea igual a la clase Perro pasandole los como parametros el nombre 'Ricarda' y la altura '1.2'
+class Clase:
+	def __init__(self,valor):
+		self.atributo = valor
 
-ricarda.ladra() daria un output de 'Ricarda esta ladrando'
+El parametro self sirve para que la clase se refiera a si misma dentro de los metodos
 
-ricarda2.ladra() daria output de
-'esta ladrando' porque no le pasamos ningun parametro y definimos valores defaults
+Ahora podemos crear objetos de esta manera
 
-Una de las cosas mas utiles dentro de oop son los getters y setters que se explican con el siguiente codigo
+objeto = Clase('String')
 
-class Cuadrado:
-	def __init__(self, lado='0'):
-		self.lado = lado
-	@property
-	def lado(self):
-		return self.__lado
-	@lado.setter
-	def lado(self, valor):
-		if valor.isdigit():
-			self.__lado = valor
-		else:
-			print('Solo numeros')
-	def area(self):
-		return int(self.__lado) * 2
-def main():
-	uncuadrado = Cuadrado()
-	lado = input()
-	uncuadrado.lado = lado
-	print(uncuadrado.area())
-main()
+Ahora vamos a crear un metodo dentro de la clase (funcion)
 
-Lo primero que hacemos es una clase llamada cuadrado y como sabemos los cuadrados tienen 4 lados de un mismo valor por lo que solo pedimos un valor
+class Clase:
+	def __init__(self,valor):
+		self.atributo = valor
+	def metodo(self, valor):
+		return self.atributo + valor
 
-Luego declaramos un getter con @property lo que nos permite a acceder a esos valores, dentro del mismo getter retornamos self.__lado tiene dos barras bajas para hacer el valro privado, osea que no se puede acceder
+Lo que hace es devolver el valor del atributo que se declaro
 
-Luego despues creamos un setter para el getter/propiedad de lado con @lado.setter donde lo unco que hace es verificar que solo entren numeros
+print(objeto.metodo('string')
 
-Al final de la clase tenemos un metodo que saca el area de el mismo cuadrado
+Esto va imprimir el valor
 
-Ya despues afuera, en la funcion main creamos un objeto a partir de la clase, conseguimos un input para el lado luego lo pasamos a el objeto sin los parentesis porque declaramos los getters y setter 
+Que no se olvide que se pueden declarar variables dentro de una clase fuera de un metodo, pero no se puede acceder globalmente
+
+class Clase:
+	variable = 0
+print(Clase.variable)
+
+Cuando queremos que una variable no se restaure al valor original cuando creamos otro objeto, dentro de la clase nos referimos a el con su nombre de clase y no con self
+
+class Clase:
+	variable = 0
+	def __init__(self,valor):
+		self.valor = valor
+		Clase.variable += 1
