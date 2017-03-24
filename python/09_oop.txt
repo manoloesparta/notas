@@ -57,7 +57,7 @@ class Clase:
 		self.valor = valor
 		Clase.variable += 1
 
-Como ya sabemos los metodos que creamos dentro de la clase el primer parametro que llevan es si mismo (self) el cual usamos self por convencion 
+Como ya sabemos los metodos que creamos dentro de la clase el primer parametro que llevan es si mismo (self) el cual usamos self por convencion
 
 Existen metodos de clase que sirven para no solo afectar instance variable sino para afectar a la clase en si (o todas las instance variables). Dentro de el mismo metodo es invocada la clase para crear un objeto
 
@@ -112,7 +112,7 @@ La funcion super hace que nos referamos a la clase madre la cual se invoca con s
 isinstance(instance, clase): te dice si una instacia es de una clase
 issubclass(subclase, clase): te dice si una subclase es parte de una clase
 
-Existen unos metodos especiales que se les llaman dunder donde estan metodos como __init__ 
+Existen unos metodos especiales que se les llaman dunder donde estan metodos como __init__
 
 Cuando vamos a imprimir una instance variable sin decir que atributo o metodo va ser nos va salir algo muy raro alfo como <__main__.Clase> algo asi asi que para evitar eso tenemos dos metodos especial
 
@@ -147,8 +147,8 @@ class Clase:
 	def __init__(self, valor):
 		self.valor = valor
 	@property
-	def metodo(self, valor):
-		return self.valor + valor
+	def metodo(self):
+		return self.valor
 var = Clase(valor)
 print(var.metodo)
 
