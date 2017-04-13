@@ -1,0 +1,23 @@
+Podemos cambiar el nombre a las funciones simplemente asignadolo como una variable
+
+def funcion(parametro):
+	return a
+nueva_funcion = funcion
+nueva_funcion(parametro)
+
+Tambien podemos usar una funcion como parametro para otra funcion
+
+def funcion_1(parametro):
+	return a + 1
+def funcion_2(func, parametro):
+	return func(parametro)
+funcion_2(funcion_1,parametro)
+
+Podemos tambien hacer funciones dentro de funciones
+
+def funcion(num):
+	def funcion_adentro(valor):
+		return valor
+	return funcion_adentro
+funcion_generada = funcion(valor)
+print(funcion_generada(valor))
