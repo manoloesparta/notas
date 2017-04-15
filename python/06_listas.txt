@@ -1,4 +1,4 @@
-xUna lista son varios valores guardados en una variable que se define con corchetes [] puede tener todo tipo de datos
+Una lista son varios valores guardados en una variable que se define con corchetes [] puede tener todo tipo de datos
 
 Podemos usar la funcion range para por ejemplo hacer una lista que del 1 al 10 pror ejemplo:
 variable = list(range(10))

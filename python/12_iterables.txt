@@ -1,0 +1,41 @@
+iterables son metodos especiales llamados __next__ que van dentro de las clases, que estan hecha para iterarse, como un ciclo for para mostrar una lista
+
+class Alphabet:
+    def __init__(self):
+        self.letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        self.index = -1
+    def __iter__(self):
+        return self
+    def __next__(self):
+        if self.index >= len(self.letters) - 1:
+            raise StopIteration
+        self.index += 1
+        return self.letters[self.index]
+alpha = Alphabet()
+for i in alpha:
+	print(i)
+
+Podemos generar listas que cumplan ciertas condiciones con cosas que se llaman list comprehensions se usan asi
+
+[2 * x for x in range(1,11)]
+
+Aqui dice que cada valor de x que se define y se va agregar a la lista se va multiplicar por dos, y el ciclo for define que sea del 1 al 10
+
+Esta list complrehension genera una lista de los primeros 10 numeros pares
+
+Se hace todo en un linea como una funcion lambda, se puede tener operaciones aritmeticas o logicas, (math e if)
+
+[x for i in range(1,11) if i % 2 == 0]
+
+Aqui va generar una lista de los primero 10 numeros pares
+
+Este tipo de listas pueden ser una alternativa para la funcion map filter y reduce
+
+[x for x in [random.randint(1,1001) for i in range(50)] if x % 9 == 0]
+
+Esto genera una lista como 50 elementos que son numero entre el numero 1 y 1000  y devuelve los numero que son multiplos de 9
+
+Existe todavia otra cosas que se llaman generators que van creando los elementos de lista conforme la invocas, esto sirve para ahorrar memoria y que el programa sea mas rapido, para ver su elementos en vivo usamos la funcion next
+
+generator = (x for x in range(10))
+next(generator)

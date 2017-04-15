@@ -1,0 +1,24 @@
+Existe una funcion que se llama map que le pasas una funcion y una lista para aplicarle a acada valor de la lista la funcion MAP
+
+lista = range(1,11)
+def funcion(x):
+	return x
+lista = list(map(funcion, lista))
+
+Tambien podemos usar funciones lambda ahi mismo
+
+Luego tenemos una funcion que elige valores por medio de una funcion FILTER
+
+lista = range(1,11)
+def funcion(x):
+	if x % 2 == 0:
+		return x
+lista = list(filter(funcion, lista)
+
+Luego tenemos una ultima que recive una lista y retorna un solo valor REDUCE 
+
+from functools import reduce
+lista = range(1,6)
+def funcion(x,y):
+	return x + y
+lista = reduce(funcion, lista)

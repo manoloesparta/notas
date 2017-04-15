@@ -21,3 +21,15 @@ def funcion(num):
 	return funcion_adentro
 funcion_generada = funcion(valor)
 print(funcion_generada(valor))
+
+Al momento de declarar una funcion tambien le podemos especificar el tipo de dato que va ser cada parametro y el que tipo de dato va retornar tambien asi
+
+def funcion(parametro: int) -> str:
+	return 'string'
+
+Tambien existen un tipo de funciones que son para hacer funciones cortas en una sola linea, se llaman lambda y se crean asi
+
+suma = lambda x,y: x + y
+suma(1,2)
+
+verdad = lambda a: True if a > 1 else False
