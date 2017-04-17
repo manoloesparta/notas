@@ -1,0 +1,38 @@
+threads es una palabra muy sofisticada para referirse a procesos. Y lo que nos permite threading es hacer muchos procesos al mismo timepo, asi podemos reducir el tiempo de un programa que tarda ejecutarse
+
+El programa en si es el primer thread o el MainThread
+
+Para esto importamos la libreria threading, este ya tiene varios metodos adentro como:
+
+.active_count(): te dice cuantos threads estan corriendo en ese momento
+.enumerate(): te dice que threads estan corriendo en ese momento
+.current_thread(): es el thread que esta corriendo en este momento
+.isalive(): te dice si un thread esta corriendo o no
+.ident(): es el id del thread
+
+Para crear un thread llamamos un objeto de la libreria, dentro del Thread le tenemos que especificar que funcion va ejecutar ese thread, y despues tenemos que ejecutar con .start()
+
+def funcion():
+	pass
+def main():
+	thread = threading.Thread(target=funcion)
+	thread.start()
+
+Cuando usamos la funcion .active_count() no siempre va tener la razon, porque el thread_2 puede terminarse antes de que la funcion .active_count() se ejecute, y va terminar solo contando 1 thread
+
+Puedes cambiarle el nombre a un thread al momento de crearlo asi
+
+thread = threading.Thread(target=funcion, name='nombre')
+
+Cuando usamos threads puede que uno se interfiera en los procesos del otro thread y para esos casos usamos la funcion .join() que solo hace que no se ejecute el siguiente thread hasta que se termine el otro de ejecutar
+
+def funcion():
+	pass
+def funcion2():
+	pass
+def main():
+	thread = threading.Thread(target=funcion)
+	thread.start()
+	thread.join
+	thread2 = threading.Thread(target=funcion2)
+	thread.start()
