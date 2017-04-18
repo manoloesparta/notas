@@ -1,0 +1,42 @@
+re es una abreviacion de regular expressions que son funciones para buscar y alterar strings
+
+re tambien es una libreria la cual tenemos que importar
+
+Tenemos funciones como:
+
+.search(): busca si un sctring se encuentra dentro de otro string
+re.search('string','otro string')
+
+.findall(): encuentra todas las veces que se repite un string dentro dedotro, esto devuelve una lista
+re.findall('string.','otro string string')
+# Si le agrego un punto al primer string significa que me muestre un caracter despues de donde se encuentra el otro string
+
+.finditer(): te devuelve el nombre o id del string dentro del string
+.span(): te devuelve como tupla donde empieza y donde termina el string que buscabas dentro de otro
+str = 'un string'
+for i in re.finditer('string.',str):
+	loc = i.span()
+	print(loc)
+	print(loc[0]:loc[1])
+#esto te devuelve lo posicion del string inicio y final como tupla y tambien por si se repite el string, y la ultima linea te muestra el string
+
+Tenemos opciones especiales que podemos usar en regez, se usan todas en el string que se busca dentro de otro con el metodo .findall()
+
+re.findall('[Aa]men','Siglos amen')
+Cuando ponemos caracteres en brackets estamos diciendo que el string que buscamos puede emepzar con una de los caracteres que le estamos poniendo, y lo que esta fuera de los brackets es lo que le seguiria al string
+#Por ejemplo en la funcion de arriba la funcion estaria buscando Amen o amen 
+
+re.findall('[a-d]an','aan can')
+Cuando usamos un guion le decimos que de este caracter hasta este otro buscame como incio, en este caso seria a,b,c,d (Tambien se puede usar con numero [0-9])
+#Esta funcion esta buscando aan ban can dan
+
+re.findall('[^H]ola','hola como Hola')
+Cuando usamos el caracter ^ le decimos a la funcion que queremos que nos devuelva los resulatos que no tenga esos caracteres
+#Esta funcion solo me va devolver hola, porque la otra tiene mayuscula H
+
+regex = re.compile([cr]at)
+Lo que hace este metodos es crear un objeto regex, osea que le hereda los metodos y atributos, se espcicifa la regular expression dentro de la funcion
+
+regex.sub('hola', 'cat rat pan')
+Esto lo que hace es sustituir el string hola dentro del otro string por lo que cumplan las condiciones ya establecidas en la variable anterior, este metodo no se usa sobre la libreria re, sino por el objeto regex que creamos anteriormente
+
