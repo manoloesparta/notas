@@ -39,4 +39,37 @@ Lo que hace este metodos es crear un objeto regex, osea que le hereda los metodo
 
 regex.sub('hola', 'cat rat pan')
 Esto lo que hace es sustituir el string hola dentro del otro string por lo que cumplan las condiciones ya establecidas en la variable anterior, este metodo no se usa sobre la libreria re, sino por el objeto regex que creamos anteriormente
+#En este caso se remplaza la palabra car y rat por la palabra hola
 
+re.search(r"\\a","\\a")
+Cuando colocamos un r antes del primer string en el metodo .search lo convertimos en un raw string, eso significa que los backslash (\) son tomados como caracteres y no para escapar valores
+#En este caso nos mandaria la parte del string \\a, pero si no ponemos la r no manda nada
+
+re.findall('.','F.B.I. I.R.S. CIA')
+El punto nos devuelve cada unos de los caracteres en una lista dentro del string, pero si queremos buscar un punto dentro del string solo usamos un backslash asi
+re.findall('\.','F.B.I. I.R.S. CIA')
+Y para conseguir solo los valores de F.B.I. e I.R.S. asi
+re.findall('.\..\..\.','F.B.I. I.R.S. CIA')
+
+Cuando hacemos string de muchas lineas, para quitar las lineas solo sustituimos los \n
+
+\b = backspace
+\f = form feed
+\r = carriage return
+\t = tab
+\v = vertical tab
+
+Existen diferetes banderas que podemos usar dentro de re
+
+\d = [0-9]
+\D = [^0-9]
+\w = [a-zA-Z0-9_]
+\W = [^a-zA-Z0-9_]
+\s = [\f\n\r\t\v]
+\S = [^\f\n\r\t\v]
+
+#tambien se puede especificar que tan grande el stack de digitos \d{2} o aclarar un alcance de digitos con \d{2,5}
+
+Esto es para ver si un string es un correo email o no
+
+re.findall("[\w._%+-]{1,20}@[\w.-]{2,20}.[A-Za-z]{2,3}", "db@aol.com m@.com @apple.com db@.com")
