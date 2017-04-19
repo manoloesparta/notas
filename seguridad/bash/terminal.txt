@@ -71,38 +71,3 @@ Combinación de teclas como comandos
 
 [ctrl]-C - este comando termina el proceso que se esté ejecutando en la terminal, haya o no acabado de ejecutarse.
 [ctrl]-D - el sistema lo interpreta como EOF (End Of File) y cierra el stream de entrada (STDIN) para un archivo en donde se esté escribiendo desde la terminal.
-Editor VI
-
-Cómo salir de VI/VIM
-
-Ejecutar la siguiente combinación de teclas para
-
-salir guardando los cambios: [ESC] : w q ![ENTER]
-salir sin guardar cambios: [ESC] : q ! [ENTER]
-Moverse un espacio a la derecha
-
-tecla l
-
-Copiar linea
-
-yy
-
-Borrar linea
-
-dd
-
-Borrar carácter
-
-tecla x
-
-Pegar linea
-
-[SHIFT] + p
-
-Insertar Texto
-
-tecla i
-
-Pegar portapapeles
-
-[SHIFT] + Insert

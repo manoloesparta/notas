@@ -73,3 +73,9 @@ Existen diferetes banderas que podemos usar dentro de re
 Esto es para ver si un string es un correo email o no
 
 re.findall("[\w._%+-]{1,20}@[\w.-]{2,20}.[A-Za-z]{2,3}", "db@aol.com m@.com @apple.com db@.com")
+
+str = 'cat cats'
+regex = re.compile('[cat]+s?')
+total = re.findall(regex, str)
+Cuando usamos el signo de positivo significa que nos va devolver uno o mas caracteres hasta que se encuentre con un espacio. Y tambien cuando colocamos un caracter despues del + y con un signo de interrogacion dices que devuelva los valores que tienen ese caracter y los que no
+#En este caso devolveria una lista con los valores ['cat','cats']
