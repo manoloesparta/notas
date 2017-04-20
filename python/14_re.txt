@@ -77,5 +77,54 @@ re.findall("[\w._%+-]{1,20}@[\w.-]{2,20}.[A-Za-z]{2,3}", "db@aol.com m@.com @app
 str = 'cat cats'
 regex = re.compile('[cat]+s?')
 total = re.findall(regex, str)
-Cuando usamos el signo de positivo significa que nos va devolver uno o mas caracteres hasta que se encuentre con un espacio. Y tambien cuando colocamos un caracter despues del + y con un signo de interrogacion dices que devuelva los valores que tienen ese caracter y los que no
+Cuando usamos el signo de positivo (+)significa que nos va devolver uno o mas caracteres hasta que se encuentre con un espacio. Y tambien cuando colocamos un caracter despues del + y con un signo de interrogacion dices que devuelva los valores que tienen ese caracter y los que no
 #En este caso devolveria una lista con los valores ['cat','cats']
+
+str = 'doctor doctors doctor's'
+regex = "[doctor]+['s]*"
+re.findall(regex, str)
+Cuando usamos un el signo de multiplicacion (*) lo que damos a entender es que nos devuelva un string de aqui hasta aca (<inicio>*<final>) y si no colocamos final nos da hasta el final del string
+#En este caso devuelve [doctor,doctors,doctor's]
+
+Greety: Agarra el mayor resultado posible eg .*
+Lazy: Agarra el menos resultado posible eg .*?
+
+str = 'ape at the apex'
+regex = re.compile(r'\bape\b')
+re.findall(regex, str)
+Cuando queremos que nos de una palabra completa y no parte de una palabra tenemos que delimitar el string con backspace (\b) inicio y final, asi solo nos devolvera resultados que sean solo la palabra en si, y convertir a raw string
+#En este caso solo devuelve [ape] y no apex porque tiene un caracter de mas, la x y solo buscamos ape (\bape\b)
+
+Para los string boundries tenemos dos tags
+
+^ = inicio de string
+$ = final de string
+
+str = 'Quiero todo excepto @'
+regex = re.compile(r'^.*[^@]')
+re.findall(regex,str)
+Aqui estamos usando los string boundries primero definimos con ^ que ahi empieza el string, luego con . decimos cualquier caracter y con * decimos que todos y con [^@] ponemos un limite de que ignore ese caracter
+#En este caso el output seria Quiero todo excepto
+
+str = '@ Quiero todo excepto'
+regex = re.compile(r'[^@\s].*$')
+re.findall(regex,str)
+Ahi le estamos diciendo que ignore el @ y el espacio con \s y que el inicio del string sea despues de esos caracteres
+#Esto regresaria Quiero todo excepto
+
+str = '''Hola a
+eso e
+aqui no'''
+regex = re.compile(r'(?m)^.*?\s')
+re.findall(regex,randstr)
+Cuando usamos (?m) es para aplicar el regex a cada linea cuando tenemos un string de multilineas
+#El resultado de esto es solo la primera palabra de cada linea del string
+
+() : cuando usamos parentesis en regex no podemos usar rangos (ranges) es como si tomara el texto crudo
+[] : en lugar los brackets si acpeta los rangos y no como string
+
+str = "412-555-1212"
+regex = re.compile(r"412-(.{8})")
+re.findall(regex, str)
+Cuando tenemos u punto nos refereimos a que se una un caracter mas, pero cuando a un lado ponemos unis {n} decimos que tantos caracteres despues
+#En este caso el output seria 555-1212 
