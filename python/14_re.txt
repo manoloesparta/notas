@@ -120,8 +120,8 @@ re.findall(regex,randstr)
 Cuando usamos (?m) es para aplicar el regex a cada linea cuando tenemos un string de multilineas
 #El resultado de esto es solo la primera palabra de cada linea del string
 
-() : cuando usamos parentesis en regex no podemos usar rangos (ranges) es como si tomara el texto crudo
-[] : en lugar los brackets si acpeta los rangos y no como string
+() : es para crear grupos 
+[] : para especificar regular expresions
 
 str = "412-555-1212"
 regex = re.compile(r"412-(.{8})")
