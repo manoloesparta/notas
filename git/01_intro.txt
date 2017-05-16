@@ -1,0 +1,7 @@
+Git es un sistema de control de versiones para un programa/software
+
+1. Usar git local
+
+2. Github
+
+3. Poryectos en Github

@@ -1,0 +1,29 @@
+git != github
+
+git es sistema de control de versiones y github es una plataforma de colaboracion
+
+Arquitectura de árbol: Dónde se genera toda la historia sobre nuestro proyecto.
+Working Area: Espacio donde editas todo tu proyecto en tu computadora (Sublime, Atom, Notepad++). git add
+Staging Area: Área de preparación y selección de archivos que se subirán al repositorio final. git commit
+Repositorio: Registro del proyecto donde se pueden ver los cambios en nuestros proyectos y hacer un seguimiento al control de versiones del mismo. guardado
+
+git init : crea el repositorio en local que es un directorio .git que contiene todo el historial 
+git status : para ver que esta en el repo y que no
+git add [archivos] : stagin area, preparar lo que sera el commit 
+git add -A : alista todos los archivos para el commit
+git commit –m "comentario" : crea el commit y queda agregado al historial del repo  
+
+Maneras de visualizar el historial:
+git log --oneline
+git log --oneline --graph
+
+Asi como se usan alias en la terminal para crear abreviaciones podemos crearlas en git con git config --global alias.nombredealias "comandos"
+
+Superlog:
+git config --global alias.superlog "log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
+
+Reset:
+git reset --hard id_commit : es el comando para borrar commits y tambien para restaura el ultimo commit borrado.
+git reset --mixed id_commit : se borra es staging area y el repositorio....no se mete con el working area(sublime text o cualquier otro editor).
+git reset --soft id_commit : se borra el commit y no el staging area y el working area....los archivos quedan cargados para hacer un nuevo commit en el staging area.
+git checkout id_commit : se utiliza para regresar en el tiempo a un punto determinado del proyecto.

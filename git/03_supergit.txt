@@ -1,0 +1,6 @@
+fusión : Una fusión es una mezcla de ambas ramas (master y experimental)
+Proceidmiento de fusiones : primero hay que situarse en la rama master(git checkout master) y luego hacer la fusión con git merge experimental
+Cómo se resuelven los conflictos:
+	-Fast forward: Los gestores trabajaron archivos diferentes al repositorio.
+	-Manual merge: Dos desarrolladores trabajan el mismo archivo en la fusión y las mismas líneas de código.
+rebase : es una técnica que nos permite situar los commits de la rama experimental delante de los commits de la rama master. Al hacer esto head queda posicionado sobre el último commit de la rama experimental, por lo tanto hay que hacer un git checkout master para volver al último commit de la rama master y luego un git merge experimental para adelantar la rama master a la rama experimental e igualarla. De esa manera podemos comenzar a trabajar con la rama master, en vez de trabajar con la rama experimental. 
