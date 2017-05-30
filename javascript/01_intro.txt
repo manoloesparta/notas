@@ -1,0 +1,73 @@
+Javascript es un lenguaje de programacion que se corre del lado del servidor
+
+Ahora ya no se necesita usar ; al final de cada linea
+
+console.log(mensaje): manda una mensaje en la consola del navegador
+
+function nombre(parametros){//codigo}: con esto declaramos funciones
+
+let variable: nos permite declarar variables diferencia con var es su scope (alcance)
+
+var variable: nos permite declarar variables
+
+const variable: crea una variable que es constante, no cambia valor
+
+Una manera de declarar funciones puedes ser:
+
+let funcion = (parametros) => codigo
+
+Son como las funciones lambda que se crean en una linea, y retorna lo que en este caso seria la variable codigo
+
+if(expresion_logica){} else if(expresion_logica){} else{}: son las maneras de usar condicionales
+
+undefined = False
+0 = False
+1 = True
+
+Existen funciones para strings como:
+
+.toUpperCase(): convierte el string en mayuscula
+
+.toLowerCase(): convierte el string en minuscula
+
+.endsWith(str): checa si el string termina en ese caracter(es)
+
+.slice(inicio, final): corta strings como se indique
+
+.length: muestra la cantidad de caracteres del string
+
+.split(str): divide un string por medio de un caracter(es) y los añade a una lista
+
+.reverse(): nos devuelve una lista con los elementos ordenados al reves
+
+.join(str): convierte una lista a string por medio de un caracter
+
+.charAt(int): te dice que caracter esta en la posicion que especificas
+
+for(variable; condicion; incremeto){//codigo}: este es un ciclo for que dice como empieza hasta donde y de cuanto en cuanto, el incremento es el primero que se ejecuta
+
+Asi se usan condicionales en una linea
+
+valor1 += valor2 ? x : y
+
+Lo que seria equivalente a
+
+if(valor2 == true){
+	valor += x
+}else{
+	valor += y
+}
+
+[a,b,c...] : esto es una lista que puede guardar infinitos elementos, siemrpe se guardan dentro de una variable para accesar asi variable[elemento]
+
+Funciones de la libreria Math
+
+Math.random(): genera un numero al azar entre 0 y 1
+
+Math.floor(): redondea un numero para abajo
+
+Math.round(): redondea un numero para arriba
+
+.toFixed(int): limita el numero de decimal que van haber
+
+while(condicion){//codigo}: repite el mismo bloque de codigo hasta que la que condicion sea false
