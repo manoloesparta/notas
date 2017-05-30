@@ -71,3 +71,21 @@ Math.round(): redondea un numero para arriba
 .toFixed(int): limita el numero de decimal que van haber
 
 while(condicion){//codigo}: repite el mismo bloque de codigo hasta que la que condicion sea false
+
+Fechas
+
+Para crear un objeto tipo fecha usamos esto
+
+const fecha = new Date()
+
+Podemos especificar una fecha en especifico asi
+
+const fecha = new Date(año, mes-1, dia)
+
+Si no le ponemos ningun parametro a Date entonces nos devolvera los datos del momento
+
+Metodos dentro de los objetos date
+
+.getFullYear: te devuelve el año
+.getMonth: devuelve el mes
+.getDate: devuelve dia
