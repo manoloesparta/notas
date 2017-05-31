@@ -1,0 +1,27 @@
+SSH Secure Shell
+
+Lo que permite es establecer una conexion con otra maquina, accesando a su terminal
+
+su uso basico es
+
+ssh usuario@ip ; ex ssh manolo@192.168.1.51
+
+Para ssh usamos llaves para poder accesar a maquinas, vamos a tener un llave privada y una publica
+id_rsa id_rsa.pub
+
+El id_rsa se usa en lugar de una contrasena para establecer la conexion por lo cual es un archivo que se protege con la vida
+
+Para hacer uno de estos seguimos estos pasos
+
+cd ~ #vamos a root
+mkdir .ssh #crear directorio
+cd .ssh #vamos a directoria
+ssh-keygen -C 'manolo@email.com' #generamos claves ssh
+cat id_rsa.pub | pbcopy #copiamos el contenido de id_rsa.pub
+ssh diego@192.168.1.52 #conectamos a otro computador, pide contraseña
+nano authorized_keys #creamos archivo
+#pegamos nuestra id_rsa.pub
+
+ahora nos podemos conectar sin contraseña
+
+ssh diego@192.168.1.52
