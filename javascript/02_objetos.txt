@@ -1,0 +1,92 @@
+Un objeto es como una variable pero con muchos atributos y se declara asi
+
+let variable = {
+	attr1: valor,
+	attr2: valor
+}
+//No siempre se tiene que usar let para declarar variables u objetos, tambien se puede usar const y var
+
+Accesamos a sus atributos asi 
+
+variable.attr1
+
+Pero tambien le podemos agregar metodos a los objetos
+
+let variable = {
+	attr1: valor,
+	attr2: valor,
+	funcion: function funcion(para){
+		return this.attr1 = para
+	}
+}
+
+Para invocar un metodo dentro de un objeto usamos
+
+variable.funcion(para)
+
+Notese que es para referirnos a valores dentro del objeto pero fuera del meotodo usamos this.attr1, y lo que hace esa funcion es cambiar el valor de attr1 por para
+
+En js no hay clases pero si prototipos
+
+function Prototipo(x, y){
+	this.x = x
+	this.y = y
+	//constructor
+}
+
+const variable = new Prototipo(0, 1)
+
+Al momento de usar new en una funcion va crear un objeto, y asignar al objeto como prototipo la funcion que se eligio, luego se ejcuta el constructor (codigo dentro de la funcion)
+
+Para agregar funciones dentro de un prototipo hacemos esto
+
+Prototipo.prototype.funcion = function funcion(y){
+	this.y = y
+}
+
+Accesamos a funciones de esta manera
+
+Prototipo.funcion(y)
+
+Y si queremos cambiar la funcion
+
+Prototipo.__proto__funcion = nueva_funcion(){
+	//codigo
+}
+
+Otra manera de crear objetos es
+
+const Objeto = {
+	init: function init(x,y){
+		this.x = x
+		this.y = y
+	},
+	funcion: function funcion(x){
+		this.x = x
+	}
+}
+
+const obj = Object.create(Objeto)
+obj.init(0, 1)
+
+Esta manera de crear objetos solo cambia en lugar de usar la keyword new usamos Object.create(Prototipo)
+
+Otra manera de crear objetos de nuevo en js es usando prototipos en forma de clases
+
+class Prototipo{
+	constructor(x,y){
+		this.x = x
+		this.y = y
+	}
+	metodo(x){
+		return x
+	}
+}
+
+const proto = new Prototipo(0, 1)
+
+Asi podemos tener los metodos dentro del objeto y tenemos que crear la funcion constructor en lugar de init
+
+Igual podemos cambiar un metodo dentro de el asi
+
+proto.__const__metodo = function(){alert()}

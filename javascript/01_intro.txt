@@ -63,10 +63,9 @@ if(valor2 == true){
 Funciones de la libreria Math
 
 Math.random(): genera un numero al azar entre 0 y 1
-
-Math.floor(): redondea un numero para abajo
-
-Math.round(): redondea un numero para arriba
+Math.floor(float): redondea un numero para abajo
+Math.round(float): redondea un numero para arriba
+Math.sqrt(int): raiz cuadrada
 
 .toFixed(int): limita el numero de decimal que van haber
 
