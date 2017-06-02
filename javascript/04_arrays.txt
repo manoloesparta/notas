@@ -1,0 +1,30 @@
+Cuando no sabemos cuantos parametros va llevar una funcion declaramos los parametros de la funcion de esta manera
+
+function x(...p){
+	return p
+}
+x(1,2,3,4,5)
+//lo que hace es convertir los multiples parametros a un array
+
+Estos son algunos metodos que podemos aplicar en los arrays
+
+arr.reduce(function(acum,num){
+	acum += num
+	return acum
+},0)
+
+.reduce(func): Si queremos hacer una función que reciba N parámetros y devuelva la suma de estos
+
+.push(data): agrega al array
+
+arr.map(function(num){
+	return num * 2
+})
+
+.map(func): hace que apliquemos una operacion(es) sobre todos los elementos de un array
+
+arr.filter(function(num){
+	return num % 2 == 0
+})
+
+.filer(func): hace que reduzca el numero de elemetos al array dependiendo la condiciones

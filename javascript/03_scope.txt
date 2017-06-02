@@ -1,0 +1,30 @@
+El scope es el alcance de una variable, podemos declarar variables con var, let, const
+
+var a = 0
+function x(){
+	console.log(a)
+}
+x()
+
+Aqui la consola lanzaria el int 0 porque la variable a tiene un alcance global
+
+var a = 0
+function x(a){
+	console.log(a)
+}
+x(1)
+
+Aqui la consola lanzaria el int 1 porque el parametro que se pasa es diferente al valor global
+
+Podemos asignar nuevos valores a variables globales dentro de funciones si no colocamos una de las maneras de declararlas
+
+var a = 0
+function x(){
+	a = 1
+}
+
+Las variables declaradas con la palabra var las lleva hasta arriba cuando se ejecuta el archivo, eso no queremos
+
+Declarar variables con keyword let, limita el scope de la variable no hace que se suba hasta arriba, ya no se debe usar var para no contaminar el codigo
+
+Declarar variables con keyword const hace que a esa variable no se le pueda cambiar el valor y cada vez que es posible usarse se deben usar
