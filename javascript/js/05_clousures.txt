@@ -1,0 +1,12 @@
+Cuando creamos funciones podemos devolver tambien funciones y asi poderlos usar en una variable
+
+function re_func(para){
+	return function func(x){
+		console.log(x)
+	}
+}
+
+a = re_func(para)
+a(para)
+
+Ahi se muestra como una funcion de hereda hacia una variable para poder invocar el metodo
