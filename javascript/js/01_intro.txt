@@ -46,6 +46,8 @@ Existen funciones para strings como:
 
 for(variable; condicion; incremeto){//codigo}: este es un ciclo for que dice como empieza hasta donde y de cuanto en cuanto, el incremento es el primero que se ejecuta
 
+.foreach(function): este es un metodo el cual hace que por cada elementos de un array se le aplique cierta funcion
+
 Asi se usan condicionales en una linea
 
 valor1 += valor2 ? x : y

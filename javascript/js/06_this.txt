@@ -1,0 +1,34 @@
+this es una keyword que nos va indicar en que contexto nos encontramos
+
+Por ejemplo: cuando estamos dentro de un metodo adentro de una clase, no podremos usar la palabra this dentro de la funcion de .foreach() porque no se va acordar que afuera de esa funcion existe otro this
+
+class clase{
+	constructor(arr, y){
+		this.y = y
+		this.arr = arr
+	}
+	meotod(){
+		this.arr.foreach(function(x){
+			console.log(this.y + x)
+		})
+	}
+}
+
+Este codigo no serviria, y seria undefined tendriamos que declarar una constante para referirse a this afuera del meotodo .foreach(), asi:
+
+class clase{
+	constructor(arr, y){
+		this.y = y
+		this.arr = arr
+	}
+	meotod(){
+	const _this = this
+		this.arr.foreach(function(x){
+			console.log(_this.y + x)
+		})
+	}
+}
+
+Podemos definir el contexto del this a una funcion poniendo al final .bind(this)
+
+Cuando declaramos una arrow function el valor de this va a ser fuera de la funcion
