@@ -32,3 +32,11 @@ class clase{
 Podemos definir el contexto del this a una funcion poniendo al final .bind(this)
 
 Cuando declaramos una arrow function el valor de this va a ser fuera de la funcion
+
+.bind() tambien nos puede ayudar a cambiar una funcion como poniendo un parametro por default, en lugar de cambiar el contexto usando asi func.bind(null, 'Para')
+
+Metodos para funciones
+
+.call(this, parametro): esta es una manera de elegir el contexto por el cual se va usar this, y ejecutar la funcion pasandole parametros
+
+.apply(this, arr): sirve igual que .call() solo que los parametros de la funcion se pasan como array
