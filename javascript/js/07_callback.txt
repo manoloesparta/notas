@@ -1,0 +1,5 @@
+La manera en que se ejecuta el codigo javascript en en call stack lo cual siginifica que una cosa se ejecuta a la vez
+
+Tenemos funciones que hacen que esperemos milisegundos asi como
+
+setTimeout(function(){},int): que le difinimos una cantidad de milisegundos que espere para ejecitar la funcion que se definio
