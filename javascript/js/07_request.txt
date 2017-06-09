@@ -1,0 +1,69 @@
+La manera en que se ejecuta el codigo javascript en en call stack lo cual siginifica que una cosa se ejecuta a la vez
+
+Tenemos funciones que hacen que esperemos milisegundos asi como
+
+setTimeout(function(){},int): que le difinimos una cantidad de milisegundos que espere para ejecitar la funcion que se definio
+
+Para realizar un request http cremoas un objeto xmlhttprequest a una constante
+
+const xhr = new XMLHttpRequest();
+
+Algunos metodos que tiene son:
+
+.open('GET/POST', url): la manera de hacer request y a donde
+.send(null): se ejecuta el request
+.onreadystatechange: es la funcion que se ejecuta cuando se usa .send()
+.readyState: te dice si cual es el estado de del xhr (si es 4 siginifaque todo bien)
+.status: da el status de el xhr y lo uso como segundo filtro (si es 200 todo cool)
+
+Tener en cuenta que un callback no es una funcion ya prestablecida en js sino es un parametro de una funcion que se le va pasar la funcion que se va ejecutar para verificar que no sea un error
+
+Tenemos las funciones callbacks que se usan de la siguiente manera
+
+callback(new Error('Error'), this.responseText)
+
+El cual se le pasa como primer parametro como el error y el segundo como el valor que se recibio
+
+Cuando nos da error no usamos el segundo parametro
+
+callback(new Error('Error'))
+
+Pero cuando no nos da error declaramos los dos valores pero poniendo el error en null
+
+callback(null, this.responseText)
+
+Para convertir el texto a JSON solo usamos el meotod JSON.parse(this.responseText)
+
+Esto se puede verificar en el archivo callback.js
+
+Pero cuando usamos muchos callbacks podemos a saturar mucho el codigo asi que tenemos la solucion; promesas
+
+Asi se usan
+
+const promise = new Promise(function(resolve, reject){
+	//funcion asyncrona
+})
+
+Los parametros que llevan a fuerxas son resolve y reject que se usan para cuando una funcion sale error o se cumple, cuando usamos resolve ya no le pasamos que no hubo error y reject solo mandamos un error no un objeto
+
+Al momento de ejecuta la funcion se usa asi
+
+get('url')
+	.then(para){
+		//que hace cuando esta bien
+	}
+	.catch(para){
+		//que hace cuando esta mal
+	}
+
+Sin declara la funcion podemos usar fetch en lugar de declarar una funcion get que de igual manera devuelve una promesa
+
+Pero todavia existe un metodo mas el cual es async-await
+
+async function func(){
+	try{
+		const a = await fetch(url)
+	}
+}
+
+Y eso es todo cuando usamos async-await async solo define que la funcion es asincrona y await solo hace esperar un valor de fetch
