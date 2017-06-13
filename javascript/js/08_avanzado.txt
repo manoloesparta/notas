@@ -59,3 +59,15 @@ El operador === nos ayuda a comparar objetos, ejecutando la comparación no dire
 
 Cuando asignamos un objeto a otro estamos haciendo que ambos apunten a la misma referencia, por eso al modificar un objeto el otro también se verá afectado, porque ambos tienen la misma referencia de memoria.
 La inmutabilidad tiene por objetivo hacer que los parámetros de un objeto sean no modificables o inmutables
+
+Cuando creamos un objeto y lo asignamos a otra variable, no esta creando otro objeto sino haciendo referencia hacia el el, lo que causa que si le cambias las propiedades a uno se lo cambias al otro
+
+Para evitar esto hacemos tenemos que crear otro objeto dentro de la funcion donde cambiemos datos y luego lo retornamos
+
+let a = {b:1}
+let b = a
+function cambiar_valor(){
+	const clone = Object.assign({}, persona)
+	clone.b++
+	return clone
+}
