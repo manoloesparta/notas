@@ -1,0 +1,61 @@
+Podemos crear tambein funciones recursivas, donde se ejecuta una funcion dentro de esa misma funcion
+
+Este comportamiento es muy importarte para solucionar cosas como series o algoritmos que tomen en cuenta valores pasados
+
+El caso base es son los numeros que se dan incialmente
+
+function func(caso_base){
+	if(caso_base == valor) return 0
+	return func(caso_base - 1)+func(num - 2)
+}
+
+El unico problema con esto es que se ejcuta si misma demasiadas veces
+
+Entonces usamos un meotodo donde que se llama memorizacion
+
+function func(caso_base, memoria = {}){
+	if (memoria[caso_base]) return memoria[num]
+	if(caso_base == valor) return 0
+	return memoria[caso_base] = func(caso_base - 1, memoria)+func(num - 2,memoria)
+}
+
+Otro metodo que podemos usar se llama iteradores que lo que tienen de especial es que cada vez que invocamos el meotod .next() se va acordar del valor pasado que tuvo
+
+function iterador(){
+	let a = 0, b = 1
+	return {
+		next: function(reset){
+		if(reset) a = 0, b = 1
+		let f = a
+		a = b
+		b = f + a
+		return {value: valor, done: false}
+		}
+	}
+}
+
+Donde dice done se refiere a si queremos que nuestro iterador tenga limite o no
+
+Tambien podemos usar otro metodo que son los generadores
+
+function* generador(){
+	let a = 0, b = 1
+	while(true){
+		let f = a
+		a = b
+		b = f + a
+		yield f
+		let reset = yield f
+		if (reset) a = 0, b = 1
+	}
+}
+
+Para declarar que es un generador solo tenemos que poner un asterisco despues del keyword function
+
+yield es un keyword que utiliamos en generadores que es como nuestro reemplazo de return pero lo que hace es para la ejecucion ahi y a la proxima vez que se invoca la funcion la continua desde ahi
+
+La inmutabilidad de los objetos es algo muy importante para la programación funcional.
+El operador === nos ayuda a comparar objetos, ejecutando la comparación no directamente a los datos del objeto sino, a la referencia del objeto.
+
+Cuando asignamos un objeto a otro estamos haciendo que ambos apunten a la misma referencia, por eso al modificar un objeto el otro también se verá afectado, porque ambos tienen la misma referencia de memoria.
+La inmutabilidad tiene por objetivo hacer que los parámetros de un objeto sean no modificables o inmutables
