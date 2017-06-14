@@ -1,0 +1,44 @@
+npm es un comando en la terminal que maneja modulos, podemos descargarlos y usarlos en nuestro proyectos y hasta publicar nuestros propios modulos
+
+Tenemos que tener instalado nodejs en la computadora y tener una cuenta en npmjs
+
+Configuramos npm con lo siguientes comandos
+
+$npm set init.author.name “Tu nombre”
+$npm set init.author.email “Tu correo”
+$npm login
+
+Para inicializar el npm usamos el comando
+
+$npm init
+
+Esto va generar un archivo .json donde se reune toda la informacion importante del modulo
+
+Otro archivo importante a generar en un modulo es LICENSE donde pegamos la licencia MIT 
+
+Y otro archivo igual de importante es un README.md que tiene un sintaxis especial aqui se puede ver:
+https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+
+Para instalar babel en nuestro modulo para poder transcribir nuestro js para todos los navegadores, aqui estan todas instrucciones:
+https://babeljs.io/docs/setup/#installation
+
+Siempre tenemos que probar si nuestra libreria tiene errores, Primero tenemos que instalar mocha y chai dos librerias que ayudan a testear modulos, mocha corre test, y chai para asersiones
+
+$npm install --save-dev mocha chai
+
+const expect = require('chai').expect //Importa el modulo chai pra testear
+const app = require('..').default //importa funciones del archivo principal
+
+describe('#app', function(){ //funcion de chai que describe los errors
+	it('Voy a verficar que si sirva una regla',function(){ //esto checa los errores pasandoles una funcion
+		const result = app('Hola') //se invoca e importa la funcion
+		expect(result).to.equal(0) // se define el resultado que se espera
+	})
+}) 
+
+Para publicar tu modulo usas :
+
+Subir a github
+$npm publish
+
+.gitignore es un archivo que ignora ciertos archivos, para que no se suban ni se hagan commits

@@ -1,0 +1,29 @@
+{
+  "name": "modulo",
+  "version": "0.1.0",
+  "description": "Nose perro",
+  "main": "dist/src/app.js",
+  "scripts": {
+    "build": "babel src/app.js -d dist",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manoloesparta/modulo.git"
+  },
+  "keywords": [
+    "khe"
+  ],
+  "author": "Manolo Esparza <manoloesparta@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/manoloesparta/modulo/issues"
+  },
+  "homepage": "https://github.com/manoloesparta/modulo#readme",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.5.2",
+    "chai": "^4.0.2",
+    "mocha": "^3.4.2"
+  }
+}
