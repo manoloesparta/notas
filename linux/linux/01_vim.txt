@@ -1,0 +1,30 @@
+VIM 
+
+Comandos para desplazarse por un archivo
+
+h - Se desplaza un espacio a la izquierda.
+l - Se desplaza un espacio a la derecha.
+k - Se desplaza una línea hacía arriba.
+j - Se desplaza una línea hacía abajo.
+Comandos de inserción
+
+a - Agrega texto después del cursor y entra al modo de inserción.
+A - Agrega texto al final de la línea y entra al modo de inserción.
+i - Inserta texto antes del cursor y entra al modo de inserción.
+I - Inserta texto al inicio de la línea y entra al modo de inserción.
+o - Abre una línea debajo del cursor y entra al modo de inserción.
+O - Abre una línea encima del cursor y entra al modo de inserción.
+Comandos de deshacer y reemplazar
+
+u - Revierte la última modificación.
+U - Revierte todas las modificaciones hechas en la línea actual
+Comandos para encontrar texto
+
+/ - Buscar una cadena de caracteres a partir del cursor hacía el fin del archivo.
+? - Buscar una cadena de caracteres a partir del cursor hacía el inicio del archivo.
+n - Ir a la siguiente cadena que coincida con la que se busca en el archivo.
+Comandos para guardar y salir
+
+:w - Guardar (salvar) el archivo.
+:q! - Salir sin guardar.
+:wq - Guardar todas las modificaciones y salir.
