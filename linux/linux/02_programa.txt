@@ -1,0 +1,98 @@
+Un repositorio sriven para tener una lista de paquetes oficiales de la distribucion
+
+/etc/apt/sources.list este archivo tiene la configuracion basico de donde va descargar los paquetes
+
+deb 	url 	xenial 	main restricted
+[dev]	[url]	[os]	[configuracion]
+
+Con el comando $apt-get update actualiza source.list
+
+Vamos agregar el repositiorio de mongodb a source.list
+
+Este comando agrega al repositorio a source.list
+
+$echo "deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
+
+Vamos actualizar source.list
+
+$apt-get update
+
+Nos va saltar un error, porque nos dice que este repositorio no tiene llave (que no es confiable), asi que agregamos llave
+
+$sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
+
+Ahora volvemos a intentar actualizar source.list
+
+$apt-get update
+
+Con la expresion $apt-cache search <str>, va hacer que se ejecute y busque la expresion <str> dentro de todos los paquetes
+
+$apt-get es un comando que me permite instalar paquetes o administrarlos, no es el mismo comando para todos los os
+
+Insalamos el paquete aptitude para manejar nuestros paquetes, usamos el caracter '/' para buscar un paquete en especifico, y cuando le ponemos enter muestra la informacion del paquete
+
++ marcar paquete para instalar
+- marcar para no instalar/desinstalar
+g para instalar paquetes marcados
+
+i: Paquete instalado
+c: Paquete no instalado, pero la configuración del paquete permanece en el sistema
+p: Eliminado del sistema
+v: Paquete virtual
+B: Paquete roto
+u: Archivos desempaquetados, pero el paquete esta sin configurar
+C: Medio configurado - La configuración ha fallado y es necesario arreglarla.
+ddpH:Medio instalado - La desinstalación ha fallado y es necesario arreglarlo.
+
+$apt-get remove pckg desintala paquetes
+$dpkg -P pckg borro todos los archivos que tiene que ver con esto
+
+Empaquetar archivos es coger muchos archivos y directorios y dejarlos todos en un mismo archivo, en lugar coprimirlos es agarrar ese archivo y comprimirlo
+
+Existe dos comandos
+
+$tar : empaquetar
+$zip : comprimir
+
+Empaquetar
+tar cvf [directorio de salida] [carpeta a empaquetar]
+
+Comprimir
+gzip -9r [archivo a comprimir]
+
+Comprimir, descomprimir
+$tar cvfz archivo.tar.gz [carpeta para comprimir], permite comprimir un archivo
+
+$tar xvfz archivo.tar.gz, permite descomprimir y desempaquetar un archivo.
+
+xvfz : extract
+cvf: compress
+
+Si no hay .tar no se usa xvfz sino xvf
+
+El comando tar mantiene los permisos de los archivos no como zip
+
+Muchas veces se va necesitar compilar un programa el cual se hace de esta manera
+
+Tenemos que instalar un programa que se llama module-assistant
+
+$apt-get install module-assistant
+
+Al instalar este programa nos va agregar el comando m-a, ahora tenemos que instalar las dependencias para poder compilar varios tipos de programas
+
+$m-a prepare
+
+Ahora enemos que agregar una fuente de datos dentro de sources.list, en los links deb-src son para descargar la fuente con la cual se instala un pckg, sirve para optimizar algo en el sistema (compilador)
+
+$nano /etc/apt/source.list
+descometar los enlaces deb-src
+
+Instalar dependencias del paquete
+
+$sudo apt-get biuld-dep [nombre del paquete]
+
+Compilar
+sudo apt-get source -b [nombre del paquete]
+
+En ubuntu encuentras la documentación en /usr/share/doc
+man y info son programas que muestran la documentación del programa que consultes.
