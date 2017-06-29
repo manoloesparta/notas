@@ -1,0 +1,113 @@
+Linux es un OS, basado en UNIX, y tenemos que entender la arquitectura para entender linux
+
+binario = programa
+
+Una de las cosas más importantes que debemos entender es la estructura de archivos, el directorio raíz es /
+
+Directorios importantes:
+
+/home, se almacenan los archivos de cada usuario.
+
+/lib, almacenas las librerías del sistema, y ahora tambien genera dos mas que son /lib32 y /lib64
+
+/mnt, cuando montamos en el sistema dispositivos, los podemos ver en esta carpeta. tambien se puede ver como /media, aqui aparecera los dispositivos externes que conectes (dev)
+
+/opt, almacenas los programas instalados de terceros.
+
+/root, almacena los archivos del super usuario Root, este directorio tiene permisos y un /home diferente, root arranca con el os principal
+
+/sbin, archivos binarios del administrador, tambien como /bin, la diferencia es el $PATH, /sbin es para el root
+
+/usr, programas instalados por defecto.
+
+/var, se utiliza para guardar archivos de logs, backups, servidor web, cache
+
+/etc, archivos de configuración del sistema.
+
+/boot, guarda los archivos del arranque del sistema.
+
+TODO LINUX ES UN ARCHIVO
+
+Tipos de particiones
+
+Existen dos tipos de tablas de particiones:
+
+La tradicional que permite 4 particiones primarias y muchas lógicas (las particiones lógicas sirven como contenedores para más particiones).
+
+gpt que permite tener muchas más particiones.
+
+Crear partición
+
+Ejecutamos fdisk /dev/xvd para ingresar al disco.
+Creamos una nueva partición con n
+Sí es la primera partición debemos crear una primaria, usamos el comando p
+Seleccionamos el tamaño de la partición, diciendole +20G
+
+Cambiar tipo de partición
+
+Ejecutamos fdisk /dev/xvd para ingresar al disco.
+Seleccionamos el número de la partición.
+Seleccionamos t
+Elegimos el número del tipo de partición.
+
+Eliminar partición
+
+Entramos a fdisk especificando el disco duro.
+Usamos el comando d
+Seleccionamos la partición.
+Guardamos cambios con w
+
+Guardar los cambios
+
+Con w guardamos los cambios que realizamos, si salimos sin guardar la configuración que hacemos no se va a escribir en el disco.
+
+Ver tabla de particiones
+
+Con el comando fdisk -l podemos ver cómo estan distribuidas las particiones.
+
+Formatear particiones
+
+El comando mkfs nos permite formatear una partición usando el sistema de archivos que queramos. Si ponemos mkfs y tab 2 veces nos muestra todas las posibles maneras de formatear
+
+Formato con FAT32:
+$mkfs.vfat /dev/xvdf1 
+
+Formato con EXT3:
+$mkfs.ext3 /dev/xvdf5
+
+Formato con EXT4:
+$mkfs.ext4 /dev/xvdf6 
+
+Formato con XFS:
+$mkfs.xfs /dev/xvdf6
+
+Usar a bander -f obliga a formatear la particion
+
+Montar las particiones:
+Debemos crear un directorio por cada partición que deseamos montar, en este caso usamos tmp dentro de esta carpeta podemos ejecutar:
+
+$mkdir xvdf1  
+$mkdir xvdf3  
+$mount /dev/xvdf1 /tmp/xvdf1  
+$mount /dev/xvdf3 /tmp/xvdf3
+
+Si no formateamos no podemos montar las particiones
+
+Desmontar una partición:
+Para poder desmontar una partición, debes no estar sobre la partición.Puedes ejecutar el comando:
+
+$unmount /tmp/xvdf1
+
+En este caso /tmp/xvdf1 es donde tenemos montada la partición.
+
+Listar puntos de montaje:
+El comando df -h nos lista los directorios que están montados y el espacio que tienen disponible.
+
+Montar particiones automaticamente:
+Sí queremos montar las particiones de forma automatica podemos ir al archivo /etc/fstab, añadimos:
+
+/dev/xvdf3    /var_new    ext4    defaults,discard    00
+
+Creamos la carpeta var_new y si todo salio bien solo necesitamos ejecutar el comando $mount /var_new/ para que se monte la particion
+
+$wipefs -a /dev/sdb1 quita las firmas que esten sobre el dispositivo externo
