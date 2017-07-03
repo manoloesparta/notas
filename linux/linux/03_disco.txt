@@ -101,13 +101,30 @@ $unmount /tmp/xvdf1
 En este caso /tmp/xvdf1 es donde tenemos montada la partición.
 
 Listar puntos de montaje:
-El comando df -h nos lista los directorios que están montados y el espacio que tienen disponible.
+El comando $df -h nos lista los directorios que están montados y el espacio que tienen disponible.
 
 Montar particiones automaticamente:
 Sí queremos montar las particiones de forma automatica podemos ir al archivo /etc/fstab, añadimos:
 
-/dev/xvdf3    /var_new    ext4    defaults,discard    00
+/dev/xvdf3    /var_new    ext4    defaults,discard    0	0
 
 Creamos la carpeta var_new y si todo salio bien solo necesitamos ejecutar el comando $mount /var_new/ para que se monte la particion
 
 $wipefs -a /dev/sdb1 quita las firmas que esten sobre el dispositivo externo
+
+Administración swap en Linux
+
+El area de intercambio o partición swap, es muy útil para máquinas que tienen muy poca memoria RAM.
+
+Ver memoria y swap:
+Con el comando $free podemos ver el uso de la memoria y swap.
+También podemos utilizar el comando $htop, pero este lo debemos instalar.
+
+Crear partición swap:
+Entramos al disco con $fdisk /dev/xvdf
+Podemos eliminar una partición o cambiarle el tipo
+Seleccionamos el tipo 82
+Guardamos con w
+Formateamos la partición con $mkswap /dev/xvdf5
+
+Una vez creada podemos activarla con $swapon /dev/xvdf5, seleccionando la partición a la que le dimos formato swap.
