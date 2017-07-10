@@ -75,6 +75,8 @@ Combinación de teclas como comandos
 
 crontab es un archivo del sistema el cual ejecuta comando al momentos que se le indique
 
+cat muestra todo el archivo, todas las lineas
+
 ^ = Se usa para referir al inicio de linea
 $ = Se usa para fin de linea
 Cuando se busca con grep
