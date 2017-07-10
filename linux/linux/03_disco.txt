@@ -114,6 +114,8 @@ $wipefs -a /dev/sdb1 quita las firmas que esten sobre el dispositivo externo
 
 Administración swap en Linux
 
+Memoria swap es un reemplazo a la memoria RAM, es lenta por estar en el disco duro, instalar RAM siempre va ser mejor soluion que usar swap
+
 El area de intercambio o partición swap, es muy útil para máquinas que tienen muy poca memoria RAM.
 
 Ver memoria y swap:
@@ -125,6 +127,7 @@ Entramos al disco con $fdisk /dev/xvdf
 Podemos eliminar una partición o cambiarle el tipo
 Seleccionamos el tipo 82
 Guardamos con w
+#si el programa sale un error, desmontamos la particion, entras a ella con fdisk y solo sales con w para que se guarden los cambios
 Formateamos la partición con $mkswap /dev/xvdf5
 
-Una vez creada podemos activarla con $swapon /dev/xvdf5, seleccionando la partición a la que le dimos formato swap.
+Una vez creada podemos activarla con $swapon /dev/xvdf5, no la podemos usar si no la hemos formateado ($mkswap), seleccionando la partición a la que le dimos formato swap.
