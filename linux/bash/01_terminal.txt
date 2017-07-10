@@ -33,6 +33,7 @@ mkdir -p [RUTA]: crea un árbol de directorios completo que no existe
 cp [archivo/directorio origen] [archivo/directorio destino]: copia un archivo o directorio desde un origen a un destino
 cp -r [directorio origen] [directorio destino]: copia un directorio y todos sus directorios hijos de forma recursiva
 open [-a APP] [ FILE | DIRECTORY ]: abre el (archivo o directorio) con la aplicación por defecto en el sistema operativo, si se manda la bandera -a usará la APP para abrirlo
+
 Operadores para STDIN, STDOUT/STDERR
 
       entrada      ->    ejecución     ->        salida
@@ -71,3 +72,11 @@ Combinación de teclas como comandos
 
 [ctrl]-C - este comando termina el proceso que se esté ejecutando en la terminal, haya o no acabado de ejecutarse.
 [ctrl]-D - el sistema lo interpreta como EOF (End Of File) y cierra el stream de entrada (STDIN) para un archivo en donde se esté escribiendo desde la terminal.
+
+crontab es un archivo del sistema el cual ejecuta comando al momentos que se le indique
+
+^ = Se usa para referir al inicio de linea
+$ = Se usa para fin de linea
+Cuando se busca con grep
+Si se busca por todos los archivos de cierta carpeta
+grep -r . -e “loquese quiere buscar”
