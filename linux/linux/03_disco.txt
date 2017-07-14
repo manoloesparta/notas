@@ -131,3 +131,104 @@ Guardamos con w
 Formateamos la partición con $mkswap /dev/xvdf5
 
 Una vez creada podemos activarla con $swapon /dev/xvdf5, no la podemos usar si no la hemos formateado ($mkswap), seleccionando la partición a la que le dimos formato swap.
+
+Para generar imagenes del disco duro (backups)
+
+Crear imágenes con $dd:
+
+$dd nos permite sacar una imágen completa del disco duro, para realizar la imagen.
+
+Primero debemos estar seguros que tenemos la partición desmontada.
+
+Usamos el comando:
+
+$dd if=/dev/xvdf6 of=/var_new/backup/backup_xvdf7 bs=1MB  
+
+if es la partición que deseamos hacer la imágen,
+of donde se va a guardar la imágen, bs son de que tamaño va a ser los paquetes de informacion, y count es otro parametro que dice cuantos paquetes va querer
+
+Montar una imagen con loop:
+
+$partprobe hace que el os escane el disco buscando particiones, por si no aparecen despuesde hacerlas
+
+Primero debemos activar el módulo del kernel con modprobe loop.
+Una vez activo, creamos una carpeta donde vamos a montar la imágen, con $mkdir /tmp/iso_debian recuerda puedes seleccionar la ruta que desees.
+
+Ahora con el comando $mount debian.iso /tmp/iso_debian -o loop estamos montando la imágen.
+
+Recuerda debes estar seguro de la ruta del archivo, puedes ir autocompletando la ruta con tab
+
+Escribir un archivo lleno de ceros:
+
+En linux existe una ruta /dev/zero esta siempre va a devolver cero.
+
+Podemos crear el archivo con
+
+$dd if=/dev/zero of=zeros100M bs=1M count=100
+
+Leer un archivo para medir la velocidad del disco:
+
+En Linux existe una ruta /dev/null la cual todo lo que enviemos va a desaparecer.
+
+Tambien existe /dev/zero que solo hay ceros
+
+Podemos medir la velocidad de un disco leyendo un archivo, enviando la información a null con:
+
+$dd if=zeros100M of=/dev/null
+
+Recuerda: con el comando sync sincronizas el disco duro.
+
+Arranque de sistema
+
+Es una pieza fundamental para poder tener un sistema, puede que el software y particiones esten bien pero si el arranque de sistema esta mal, no va servir
+
+Se puede arrancar con de dos maneras:
+
+MBR: Master Boot Record, 512 bytes al incio del disco/particion de arranque, eso nos identifica donde esta kernel, drivers y mas
+
+UEFI: Unified Extensible Firmware Interface, sirve para tener un arranque seguro porque antes se ponian viruses en el arranque, primero arranca y luega checa cada seccion.
+
+Administar particiones en GPT
+
+Cuando intentamos aplicar esto sobre una particion MBR no se podra y destruira todo el material
+
+Saber tipo de tabla de particiones
+
+Con fdisk -l /dev/xvda, muestra el tipo de la tabla de partición.
+
+Tabla de particiones GPT
+
+GPT permite tener 128 particiones en un disco duro.
+gdisk es un comando especial para particiones GPT.
+
+Crear particiones con gdisk
+
+Usamos el comando gdisk /dev/xvdh para acceder a configurar las particiones del disco. Recuerda debes seleccionar el disco que deseas configurar.
+Usamos la opción n para crear una nueva, y seleccionamos el número de la partición.
+Asignamos el tamaño de la partición en este caso +1G
+Seleccionamos el tipo de partición, por ejemplo 8300 para cargar tipo Linux filesystem
+
+Dentro de particiones GPT pueden haber hasta 128 particiones, pero en uno disco MBR solo pueden haber 4 particiones y adentro de cada una de esas pueden haber particiones logicas
+
+Administrar el arraque del sistema GRUB
+
+El GRUB (GNU GRand Unified Bootloader) es gestor de arranque, que permite cargar el kernel y el sistema.
+
+Archivos de configuración
+
+En la carpeta /etc/grub.d vemos los archivos del grub.
+/boot/grub/grub.cfg es el archivo de configuración, pero no modifiques este archivo, para configurarlo usa /etc/grub.d
+El grub se coloca en el MBR, que esta en los primeros 512 Bytes del disco.
+
+Backup del MBR
+
+Podemos generar un backgrup del MBR con dd
+dd if=/dev/xvda of=/root/mbr_backup bs=512 count=1
+
+Actualizar grub
+
+update-grub2  
+
+Instalar grub
+
+grub-install /dev/xvdf  
