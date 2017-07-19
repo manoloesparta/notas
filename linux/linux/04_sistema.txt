@@ -1,0 +1,41 @@
+Arrancando el sistema runlevels, systemd
+
+En Linux por defecto han existido 6 niveles que todos los programas arrancan, se pueden ver en las carpetas /etc/rc0.d hasta /etc/rc6.d
+
+Dentro de estas carpetas los archivos con S es de arranque y K es de salida
+
+Runlevel
+
+con $runlevel dice en qué sistema se está corriendo
+
+systemd
+
+$systemd permite saber un árbol de procesos, indicando las dependencias de estos para interactuar con systemd usamos systemctl
+
+Listar dependencias
+
+$systemctl list-dependencies [servicio]
+
+Ver servicios
+
+$systemctl
+
+Ver un servicio
+
+$sysctl show [nombre del servicio]
+
+Buscar servicios
+
+$ps aux | grep [servicio]
+
+Recargar un servicio
+
+$systemctl deamon-reload
+
+Reiniciar un servicio
+
+$systemctl restart [nombre]
+
+Estado de un servicio
+
+$systemctl status [nombre]

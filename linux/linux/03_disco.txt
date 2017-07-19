@@ -231,4 +231,50 @@ update-grub2
 
 Instalar grub
 
-grub-install /dev/xvdf  
+grub-install /dev/xvdf
+
+Administrar discos duros con LVM
+
+LVM nos permite realizar una configuración de discos duros que nos permita administrar el espacio de almacenamiento del servidor.
+
+Instalación
+
+apt-get install lvm2 
+
+Crear volúmenes físicos
+
+Primero debemos agregar los discos físicos que vamos a usar para crear el LVM, para esto debemos formatear la partición a usar con tipo 8e
+
+$pvcreate /dev/xvdf3, agrega la partición a los volúmenes físicos del LVM
+
+$pvs listar los discos en los volúmenes lógicos
+
+Grupos
+
+$vgcreate databases /dev/xvdf3, se agrega la partición a un grupo
+
+$vgs listar los grupos
+
+$vgreduce databases /dev/xvdg remueve una partición del grupo
+
+Volumenes lógicos
+
+lvcreate -n postgres -L 10g databases, crea una partición usando el espacio de un grupo
+
+Extender tamaño de la partición
+
+$lvextend -L+10G /dev/databases/posgress
+$resize2fs /dev/databases/posgress 
+
+Apagar servidores de forma remota
+
+Los administradores de servidores normalmente deben apagar servidores de forma remota, recuerda:
+
+Revisar en cual servidor estas conectado
+Linux no preguntar confirmación
+
+Es diferente apagar y reiniciar
+Comandos
+$shutdown -r now reinia la máquina
+$shutdown -h now apagar la máquina
+$systemctl reboot reiniciar
