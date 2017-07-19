@@ -39,3 +39,130 @@ $systemctl restart [nombre]
 Estado de un servicio
 
 $systemctl status [nombre]
+
+Uso de variables de entorno, bashrc, profile
+
+Las variables de entorno permiten configurar diferentes ambientes cómo de desarrollo o producción, también guardar llaves de seguridad.
+
+Una variable de entorno es simplemente una variable
+
+Crear una variabla de entorno
+
+NOMBRE="manolo"
+
+Imprimir variable
+
+echo $NOMBRE
+con $export listas todas las variables
+
+.bashrc y .profile
+
+Estos archivos guardan configuraciones de la sesión como alias, variables de entorno, etc.
+
+~/.profile: afecta todo lo que tenga que ver con .bashrc
+~/.bashrc: solo afecta al usuario en el que se puso
+/etc/profile: afecta a todos los usuarios
+
+
+Agregar una variable de entorno
+
+En el archivo /etc/bash.bashrc agregar una línea declarando la variables export HOME_DB=/var_new
+
+Recuerda:
+Cada sesión tiene sus variables de entorno
+En PATH se guardan las rutas donde el sistema busca binarios
+Las variables de entorno solo se mantienen durante la sesión, debes exportarlas para guardarlas
+
+1- Comando “export” para ver las variables de entorno de la sesión actual
+2- “logout” para cerrar sesión
+3- “sudo su -” para iniciar una sesión de super usuario nueva, reiniciando las variables de entorno
+4- “sudo su” para iniciar una sesión de súper usuario, retomando la sesión si se había iniciado anteriormente, con las variables de entorno que tenía en ese momento.
+5- “vim /etc/profile” para editar y agregar variables de entorno para todos las sesiones del usuario (VARIABLE=“Valor”). Si se anteponer “export”, podrá ser usada por las sesiones (export VARIABLE=“Valor”), luego guardar el archivo.
+6- “vim /etc/bash.bashrc” para editar y agregar variables de entorno para todos los usuarios. Se sigue la misma lógica de “/etc/profile”
+
+Uso de redireccionamineto y pipes para logs
+
+Muchas veces los logs se centralizan en un sistema para verlos otras se guardan en el servidor, para poder darle valor a los logs, debemos poder encontrar información en el.
+
+Leer un archivo
+
+$less [nombre archivo] (G para final de archivo)
+$more [nombre archivo]
+
+Filtrar información
+
+$grep -r "25/Nov" buscar los del 25 Nov en todos los archivo recursivamente
+
+Contar líneas
+
+$wc [archivo]
+
+Encadenar procesos
+
+$grep -r "25/Nov" | wc, el resultado de grep se le pasa a wc
+
+Enviar la salida de un comando a un archivo
+
+$grep -r "25/Nov" * > /tmp/25nov
+
+Ver últimos logs
+
+$tail [nombre]
+
+Monitorear, eliminar y establecer prioridades en procesos
+
+Los procesos permiten al sistema operativo trabajar, definiendo cuando se debe procesar información.
+Los procesos en Linux están encapsulados, esto quiere decir que el usuario que lanzo el proceso es quien lo debe quitar.
+
+Listar procesos del sistema
+
+$ps aux
+
+Revisar carga del sistema
+
+$htop
+
+Recuerda:
+Todo proceso en Linux tiene un número único
+Un proceso puede tener un valor de prioridad desde -20 hasta 19
+
+Enlaces duros, simbólicos y sistemas de backups
+
+Enlace simbolico
+
+Un archivo sin datos, que solo contiene una referencia a la ubicación del archivo original.
+
+$ln -s /home/ubuntu/archivo.iso debian.iso
+
+Enlaces duros
+
+En un archivo enlazado al archivo original pero con un nombre diferente.
+
+$ln a/zero b/
+
+Manejo de usuarios y grupos
+
+Linux es un sistema multiusuario, cada usuario puede correr con diferentes configuraciones, permisos, etc.
+
+Crear un usuario
+
+$adduser manolo, crea un usuario
+Todo usuario tiene un id, home y el terminal a usar.
+
+Cambiar de usuario
+
+su - [nombre de usuario]
+
+Grupos
+
+Cada usuario puede pertenecer a diferentes grupos que le permita acceder a recursos
+$groups te dice a que grupos tienes acceso
+
+Añadir a un nuevo grupo
+
+$addgroup [Usuario] [grupo]
+$addgroup manolo sudo
+Se necesita volverse a conectar al usuario para que cargue los permisos al usuario.
+
+Recuerda:
+En el archivo /etc/shadow se guardan las contraseñas
