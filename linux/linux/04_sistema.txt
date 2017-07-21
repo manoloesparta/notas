@@ -166,3 +166,17 @@ Se necesita volverse a conectar al usuario para que cargue los permisos al usuar
 
 Recuerda:
 En el archivo /etc/shadow se guardan las contraseñas
+
+Generar Backups de Base de Datos
+
+Usamos el comando $synd para decirle al disco duro que guarde cambios
+
+Luego para cada tipo de base de datos tienes su manera especial
+
+PostgreSQL: pg_dump [base de datos ] > backup.2017.sql
+MySQL: mysqldump database_name > database_name.sql
+mongoDB: mongodump
+
+Montar base de datos
+
+PostgreSQL: psql[base de datos ] < backup.2017.sql
