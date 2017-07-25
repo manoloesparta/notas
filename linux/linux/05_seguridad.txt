@@ -1,0 +1,210 @@
+Seguridad del kernel
+
+El kernel es la pieza fundamental del sistema operativo, el interactua entre el hardware y los programas que se están ejecutando.
+
+Por defecto el kernel de Linux está bien asegurado, veamos cómo modificar estos límites
+
+Modificar límites
+
+En el archivo /etc/security/limits.conf se encuentra la configuración de límites del kernel
+
+  soft  nofile  32000    hard  nofile  35000  
+
+De esta forma estamos estableciendo la cantidad de archivos que puede abrir el sistema al tiempo.
+
+Permisos de archivos
+
+Todos los días vas a trabajar con permisos en Linux, estos nos permiten controlar la seguridad.
+
+Para listar archivos mostrando permisos lo haces con ls -l
+
+La información se muestra cómo organizado en usuario grupo otros, cada uno tiene un ítem para lectura, escritura y ejecución.
+
+Cambiar permisos
+
+$chmod [bloque][+ o -][permiso] [nombre de archivo]
+$chmod o-r test, los otros quitar el permiso de lectura al archivo test
+$chmod 776 [nombre de archivo]
+
+4 lectura  2 escritura  1 ejecución  
+
+Cambiar propietario de un curso
+
+sudo chown [usuario]:[grupo] [archivo]
+sudo chown platzi: /tmp/delete
+
+Configuración de red
+
+Ver la configuración de interfaces de red
+
+$ifconfig
+
+Inicializar la interfaz
+
+$dhclient eth1
+
+Archivos de configuración
+
+/etc/network/interfaces
+/etc/network/interfaces.d
+
+Activar DHCP automatico
+
+En el archivo interfaces.d agregamos la línea
+iface eth1 inet dhcp
+
+Apagar inferface de red
+
+$ifdown eth0
+
+Multiples ip sobre una misma interface
+
+$ifconfig eth0:0 192.168.10.5
+
+Comando ip
+
+Con este comando podemos sustituir $ifconfig
+ip addr show, mostar las direcciones
+
+Enrutamiento
+
+Para ver la tabla de enrutamiento se puedes usar $route -n
+
+Cómo manejar mi firewall
+
+$iptables permite transmitir la información entre las interfaces de red y el sistema operativo.
+
+Por defecto el firewall tiene algunas políticas generales
+
+Listar información del firewall
+
+$iptables -L
+
+input: los paquetes que entran
+output: paquetes que salen
+forward: paquetes que llegan y se redireccionan
+
+Rechazar todos los paquetes de entrada
+
+iptables -P INPUT DROP
+
+Aceptar conexiones de un puerto especifico
+
+iptables -A INPUT -i eth0 -p tcp --dport 22 -j ACCEPT
+
+Guardar las reglas
+
+iptables-save > /etc/iptables.rules
+
+Manejo de DNS y dig
+
+El DNS permite mapear un nombre a una dirección IP
+/etc/host guarda la lista de ips y nombres asignados en la máquina
+
+Los distintos tipos de DNS son:
+	A - IPv4
+	CNAME - nombre
+	MX - correo
+	AAAA - dirección IPv6
+	TXT - texto
+	PTR - dns reverso
+
+Consultar dominios
+
+$apt-get install dnsutils
+$dig linux.platzi.com a dns oficiales
+$dig linux.platzi.com @[servidor dns] a un servidor especifico
+
+Instalación de NTP
+
+NTP es un servicio que permite sincronizar la hora.
+
+Instalación
+
+$apt-get install ntp
+
+Consultas
+
+$ntpq permite hacer consultas al servicio
+
+Activar
+
+$ntpdate-debian selecciona un servidor y hace la configuración.
+
+Archivo de configuración
+
+/etc/default/ntpdate
+
+Auditoria de login y logs
+
+$who muestra los usuarios conectados
+$w quién está conectado y hace cuanto estan inactivos
+/var/log/auth queda registrado todos los intentos de acceso
+
+Tuneles con ssh, autossh y socat
+
+Abrir un túnel en el servidor
+
+$ssh -Ng -L9898:localhost:80 -i manolo
+
+Aceder a la máquina local
+
+$ssh -NR 10022:localhost:22 -i manolo
+$ssh -p 10022 usuario@localhost
+
+Crear proxi
+
+$ssh -N -D10090 manolo
+
+Backup de archivos de configuración con etckeeper
+
+Cuando mantenemos un gran sistema necesitamos tener auditoria de las acciones en el servidor.
+
+backup de etc/
+
+Con etckeeper podemos guardar la configuraciones de etc, usando git.
+
+Instalación:
+
+$apt-get install etckeeper
+
+Guardar cambios
+
+$etckeeper commit
+
+Prevenir ataques con fail2ban
+
+Muchas veces los servidores están expuestos a ataques, fail2ban nos permite bloquear ataques.
+
+Instalación
+
+$apt-get install fail2ban
+
+Configuración
+
+/etc/fail2ban/fail2ban.conf
+/etc/fail2ban/jail.conf
+
+Filtros
+
+Para activar un filtro lo debes buscar y añadir la línea enabled = true, por ejemplo en nginx debes buscar el archivo etc/fail2ban/filter.d/nginx-http-auth.conf
+
+Restaurar el servicio
+
+$fail2ban.service restart
+
+Encriptación de datos
+
+$gpg es un programa que maneja una serie de configuraciones para encriptación.
+
+Encriptación simetrica
+
+$gpg -ca -o [salida] [entrada]
+
+md5sum, integridad de archivos y paquetes
+
+md5sum permite sacar una suma binaria de un archivo con un hash
+
+Calcular m5sum
+
+md5sum [nombre del archivo]
