@@ -1,0 +1,146 @@
+Como toda libreria tenemos que importar matplotlib, pyplot esta dentro de matplotlib que tambien se usa mucho y como estandar se importa como plt
+
+import matplotlib.pyplot as plt
+
+Un plot es un punto dentro de una grafica y para hacer unos y graficarlos hacemos
+
+plt.plot([1,2],[1,2])
+plt.show()
+
+El metodo plot.plot(x,y) lleva como parametros los ejes x,y y cuando es mas de un punto le pasamos arrays 
+
+Podemos cambiar los titulos que tiene la grafica con los siguientes metodos
+
+plt.xlabel('Titulo X')
+plt.ylabel('Titulo Y')
+plt.title('Titulo de Grafica')
+
+Para usar diferentes lineas dentro de de la misma grafica usamos un meotod llamado plt.legend() y agregando otro parametro a plt.plot() llamado label
+
+x = [1,2]
+y = [3,4]
+
+x2 = [11,12]
+y2 = [13,14]
+
+plt.plot(x,y,label='primera linea')
+plt.plot(x2,y2,label='segunda linea')
+
+plt.legend()
+plt.show()
+
+grafico de barras = comparar graficas
+histogramas = mostrar avance
+
+Para hacer graficos de barras usamos un nuevo metodo llamdo plt.bar() que igual lleva los mismos parametros que plt.plot(), pero para hacer graficos de barras necesitamos cambiar los colores de unas y para eso agregamos otro parametro a la funcion plt.bar() que es color
+
+Color puede llevar:
+
+	b: blue
+	g: green
+	r: red
+	c: cyan
+	m: magenta
+	y: yellow
+	k: black
+	w: white
+
+O se le ponen colores hexadecimanles
+
+x = [1,2,3,4]
+y = [5,6,7,8]
+
+x2 = [11,12,13,14]
+y2 = [15,16,17,18]
+
+plt.bar(x,y,label='barra 1',color='b')
+plt.bar(x2,y2,label='barra 2',color='r')
+
+plt.legend()
+plt.show
+
+Para hacer histogramas no tenemos que definir en si unos valores x,y porque un histograma es lineal lo que hacemos es darle un array a un metodo lamado plt.hist() con todos los valores que tenemos y luego le damos unos rangos (bins) que van a delimitar entre que valor cae cada valor, luego el tipo de histograma y al final la anchchura de cada barra
+
+edades = [1,2,3,4,5,6,7,8,9,10]
+bins = [1,3,6,10]
+
+plt.hist(edades,bincs,histtype='bar',rwidth=0.8)
+
+plt.legend()
+plt.show
+
+Para solo poner puntos dentro de una grafica usamos el metodo plt.scatter() el cual tiene los mismos parametros que plt.plot() a excepcion de marker que es lo que se colocara en vez de un punto, y s para cambiar el tamaño
+
+x = [1,2,3,4,5]
+y = [1,2,3,4,5]
+
+plt.scatter(x,y,label='puntos 1',marker='*',s=100)
+
+plt.legend()
+plt.show
+
+Para extraer informacion de un archivo necsitamos importar csv
+
+import csv
+
+Y para extraer ya en si la infromacion del archivo usamos este metodo
+
+x = []
+y = []
+
+with open('archivo.txt','r') as csvfile:
+	plots = csv.reader(csvfile, delimeter=',')
+	for row in plots:
+		x.append(int(row[0]))
+		y.append(int(row[1]))
+
+plt.plot(x,y,label='archivo')
+plt.legend()
+plt.show()
+
+Pero este metodo es medio revoltosos aqui va otro mejor donde se usa la libreria numpy
+
+import numpy as np
+
+Y usamos este metodo para exraer la informacion del archivo
+
+x, y = np.loadtxt('archivo.txt', delimeter=',', unpack=True)
+plt.legend()
+plt.show()
+
+Cuando queremos extraer infromacion del internet se vuelve algo mas complejo y usamos otras librerias como urllib, usamos algo asi
+
+import matplotlib.pyplot as plt
+import numpy as np
+import urllib
+import matplotlib.dates as mdates
+
+
+def graph_data(stock):
+
+    stock_price_url = 'http://chartapi.finance.yahoo.com/instrument/1.0/'+stock+'/chartdata;type=quote;range=10y/csv'
+
+    source_code = urllib.request.urlopen(stock_price_url).read().decode()
+
+    stock_data = []
+    split_source = source_code.split('\n')
+
+    for line in split_source:
+        split_line = line.split(',')
+        if len(split_line) == 6:
+            if 'values' not in line:
+                stock_data.append(line)
+
+ date, closep, highp, lowp, openp, volume = np.loadtxt(stock_data,
+      delimiter=',',
+      unpack=True,
+      # %Y = full year. 2015
+      # %y = partial year 15
+      # %m = number month
+      # %d = number day
+      # %H = hours
+      # %M = minutes
+      # %S = seconds
+      # 12-06-2014
+      # %m-%d-%Y
+	  converters={0: bytespdate2num('%Y%m%d')})
