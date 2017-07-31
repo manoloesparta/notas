@@ -1,0 +1,37 @@
+Numpy es una libreria que nos ayuda a hacer calculos en python y se usa mucho con pandas para analizar datos
+
+import numpy as np
+
+El objeto mas importante en numpy no los ndarray que es un array de n dimensiones, que se crean con el metodo np.array() que lleva muchos parametros pero principalmente una lista
+
+np.array([1,2,3])
+#[1,2,3]
+
+Lo cual devuelve como una lista comun pero es una lista a la cual se le puede aplicar muchos mas metodos
+
+Para crear una lista multidemsional tenemos dos manera una es asi
+
+np.array([[1,2],[3,4]])
+#[[1,2]
+#  3,4]]
+
+El cual la libreria interpreta que es un array de dos dimensiones, al ver dos lista dentro de una, o usamos 
+
+np.array([1,2,3], ndim=2)
+#[[1,2,3]]
+
+El cual le pasamos un parametro que le decimos cuantos dimersiones vamos a querer aunque le pasemos una lista de una dimension
+
+Podemos definirle el tipo de datos con el paramtros dtype usando opciones como complex, todas las opciones de tipos de datos las podemos encontrar aqui https://www.tutorialspoint.com/numpy/numpy_data_types.htm
+
+Tenemos otros metodos que podemos usar dentro de los ndarrays asi como
+
+.shape(y,x): que te devuelve una tupla con la forma del ndarray, cuantos elemtos en x y cuantos en y, tambien se puede usar como un metodo, para modificar la forma del ndarray
+
+.reshape(y,x): es otra manera de usar .shape() como metodo
+
+.arange(int): esto genera todos los numero pasados al que se de, desde el 0, esto sirve para generar array y cambiarles la forma despues con .reshape()
+
+.itemsize: es un atributo del objeto que te dice que tantos bytes pesa
+
+.flags: muestra ciertan propiedades del elemento
