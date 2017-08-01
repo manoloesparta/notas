@@ -22,7 +22,10 @@ np.array([1,2,3], ndim=2)
 
 El cual le pasamos un parametro que le decimos cuantos dimersiones vamos a querer aunque le pasemos una lista de una dimension
 
-Podemos definirle el tipo de datos con el paramtros dtype usando opciones como complex, todas las opciones de tipos de datos las podemos encontrar aqui https://www.tutorialspoint.com/numpy/numpy_data_types.htm
+Podemos definirle el tipo de datos con el paramtros dtype usando opciones como complex, todas las opciones de tipos de datos las podemos encontrar son: bool_ int_ intc intp int8 int16 int32 int64 uint8 uint16 uint32 uint64 float_ float16 float32 float64 complex_ complex64 complex128
+
+dt = np.dtype(np.int32)
+np.array([1,2,3],dtype=dt)
 
 Tenemos otros metodos que podemos usar dentro de los ndarrays asi como
 

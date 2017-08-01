@@ -1,0 +1,75 @@
+Para poder mostrar las bases de datos que estan creadas sobre la computadora se usa el comando $show databases; y para cambiar de base de datos se use le comando $use db; al final de cada comando siempre tenemos que poner el punto y coma ;.
+
+Cuadno creamos una tabla tenemos que usar ciertos comandos, generalmente usamos puras mayusculas para los comandos/keywords, asi que especificamos el nombre de la tabla, el nombre de columnas y configuracion de cada columna.
+
+CREATE TABLE books(
+	book_id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+	publisher_id INTEGER UNSIGNED NOT NULL DEFAULT 0,
+	author VARCHAR(100) NOT NULL,
+	title VARCHAR(60) NOT NULL,
+	description TEXT,
+	price DECIMAL(5,2),
+	copies INT NOT NULL DEFAULT 0
+);
+
+CREATE TABLE publishers(
+	publisher_id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+	name VARCHAR(100) NOT NULL,
+	country VARCHAR(20)
+);
+
+CREATE TABLE users(
+	user_id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+	name VARCHAR(100) NOT NULL,
+	email VARCHAR(100) NOT NULL UNIQUE
+);
+
+Para crear tablas usamos CREATE TABLE
+
+De la opciones que se ven en los campos para llenar dentro de cada tabla tenemos su configuracion que cada uno significa
+
+INTEGER: Solo numeros enteros
+UNSIGNED: Solo numero positivos
+PRIMARY KEY: Es la llave de cada valor registrado
+AUTO_INCREMENT: Se suma uno al numero que ya tenemos cada vez que se registra un nuevo valor
+NOT NULL: No se debe dejar en blanco
+VARCHAR(int): Debe ser string y se debe elegir un limite
+UNIQUE: No se puede repetir en la base de datos
+
+$describe db: te describe la tabla seleccionada
+$show tables: muestra tablas de la bases de datos
+
+CREATE TABLE action(
+	action_id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+	book_id INTEGER UNSIGNED NOT NULL,
+	user_id INTEGER UNSIGNED NOT NULL,
+	action_type ENUM('venta','prestamo','devolucion') NOT NULL,
+	created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+ENUM(): Te da unas opciones para elegir
+DEFAULT: Un valor que usa si no se da nada
+TIMESTAMP: Un tipo de dato que habla de el momento incluyendo de año hasta segundos
+CURRENT_TIMESTAMP: La hora del momento
+
+Para hacer registros dentro de una tabla usamos INSERT INTO tabla(valor1,valor2) VALUES (valor1,valor2)
+
+INSERT INTO users(name, email) VALUES ('Ricardo', 'ricardo@hola.com');
+
+INSERT INTO publishers(publisher_id, name, country) VALUES (1, 'OReilly', 'USA');
+
+INSERT INTO books(publisher_id, title, author, description, price, copies) VALUES (1, 'Mastering MySQL', 'John Goodman', 'Clases de bases de datos usando MySQL', 10.50, 4);
+
+Tiene que ir con sus respectivos compas los valores que estamos dando y estamos dando tambien que campo queremos llenar
+
+$select * from tabla nos mostrar todos los registros de una tabla, si usamos \G al final del comando podremos ver todo mejor en la terminal
+
+El comando solo $select es para seleccionar columnas incluse fuera de una tabla
+
+TRUNCATE : Borra datos y metadatos
+DELETE: Borra datos
+DROP TABLE: Elimina la tabla
+
+Existe la funcion count() que nos cuenta los datos registrados dentro de la columna de la tabla
+
+Podemos usar alias en mysql pero solo tenemos que usar la keyword AS para asignar el alias FROM publisher AS pub pero esto solo dura para leer el query

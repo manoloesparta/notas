@@ -1,0 +1,16 @@
+Una base de datos (cuya abreviatura es BD) es una entidad en la cual se pueden almacenar datos de manera estructurada, con la menor redundancia posible. 
+
+Diferentes programas y diferentes usuarios deben poder utilizar estos datos. Por lo tanto, el concepto de base de datos generalmente está relacionado con el de red, ya que se debe poder compartir esta información. Generalmente se habla de un "Sistema de información" para designar a la estructura global que incluye todos los mecanismos para compartir datos.
+
+
+Cuando los datos deben ser consistentes sin dar posibilidad al error utilizar una base de datos relacional. SQL.
+
+Cuando nuestro presupuesto no se puede permitir grandes máquinas y debe destinarse a máquinas de menor rendimiento. NoSQL.
+
+Cuando las estructuras de datos que manejamos son variables. NoSQL.
+
+Análisis de grandes cantidades de datos en modo lectura. NoSQL
+
+Captura y procesado de eventos. NoSQL
+
+Tiendas online con motores de inteligencia complejos. NoSQL
