@@ -1,0 +1,39 @@
+#!/bin/bash indica que el script se interpretará con bash
+
+Para imprimir un string enn bash usamos el comando echo
+
+echo "string"
+
+Para conseguir un imput hacia una varibale usamos read
+
+read VARIABLE
+
+Para imprimir el valor de una varibale en un string
+
+echo "Hola $VARIABLE"
+
+Si queremos que eal momento de imprimir pueda interpretar otro tipo de caracteres como \n usamos printf
+
+printf "Hola \n"
+
+Para obtener imputs desde la ejecucion del archivo usamos como variables con numero desde el printf
+
+printf("Esto $1 $2 $3")
+! bash archivo.sh valor1 valor2 valor3
+
+Existe un comando que se llama shift sirve para hacer rotacion, osea que descarta el primer argumento
+
+printf("Esto $1 $2 $3")
+shift
+! bash archivo.sh valor1 valor2 valor3
+(solo imprimer valor2 y valor3)
+
+Argumentos especiales
+
+$# numero de argumentos que nos han pasado
+$* todos los argumentos
+$@ todos los argumentos
+$_ comando anteriormente ajecutado
+$$ PID del propio proceso shell
+$0 nombre del archivo
+$? Se ejecuto con exito o no

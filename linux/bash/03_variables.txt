@@ -1,0 +1,31 @@
+Declaramos variables igual que en python
+
+VARIABLE="hola mundo"
+
+Para imprimir siempre tenemos que usar el simbolo $
+
+echo $VARIABLE
+
+Cada vez que cargamos el sistema siempre se generan unas variables de entorno, o nosotros podemos crearlas desde la terminal
+
+! export VAR="hola"
+echo $VAR
+
+Pero tambien les podemos cambiar el valor dentro del 
+
+! export VAR="hola"
+VAR="adios"
+echo $VAR
+
+Todo es un string lo cual no nos permite hacer operaciones matematicas, las tenemos que declarar como ints, y despues de declalarlo como int ya no le podemos poner un valor string
+
+declare -i VAR
+VAR=1
+echo $VAR 
+
+Para decalrar varibales se hace casi igual que en javascript, nota si se cambia dentro de la funcion tambien se cambia globalmente
+
+f_funcion(){
+	VAR="valor"
+	echo $VAR
+}
