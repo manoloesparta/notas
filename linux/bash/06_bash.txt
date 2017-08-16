@@ -1,0 +1,87 @@
+Para especificar que se va usar bash ponemos hasta arriba del archivo #!/bin/bash
+
+Creamos comentarios solo poniendo un # al principio
+
+# esto es un comentario
+
+Para imprimir un mensaje en usamos el comando echo
+
+echo "mensaje"
+
+Para ejecutar un archivo bash podemos usar el comando $bash archivo.sh o ./archivo, si no se puede ejecutar usamos el comando chmod +x archivo
+
+Declaramos variables casi igual que en python solo que no podemos tener espacios entre signos
+
+variable="valor"
+
+Siempre la consola va interpretar todo como un string aunque le pasemos numeros
+
+Podemos declarar un constante asi
+
+declare -r NUM1=2
+num2=4
+
+Y asi vamos a poder usar numero y realizar operaciones aritmeticas
+
+num3=$((NUM1+num2))
+
+Podemos declarar numero asi
+
+declare -i NUM=2
+
+Tenemos un comando que imprime el contenido de un archivo que tambien nos sirve para imprimir un string de varias lineas
+
+cat<<END
+esto
+es cool
+END
+
+Para crear una funcion es igual que en javascript, y se ejecuta igual de la misma manera, a diferencia de los demas el comando return va devolver un numero entre 0 y 255 
+
+funcion(){
+	echo "a"
+	return
+}
+funcion
+
+Tambien aqui se mantiene diferente el scope de cada variable lo cual nos permite declarar variables locales dentro de funciones
+
+var=1
+funcion(){
+	local var=2
+	return
+}
+funcion
+echo "$var"
+
+Cuando tenemos un echo al final de la funcion no es necesario usar return
+
+Para cambiar el valor de una varibale global desde una funcion la ponemos como si fuera otra variable
+
+Cuando utilizamos $1, $2, $3... significa que son los parametros de la funcion
+
+funcion(){
+	local var1 = $1
+	local var2 = $2
+	echo $((var1+var2))
+} 
+valor=$(funcion 1 2)
+echo "$valor"
+
+Para recivir input solo usamos el comando read
+
+read -p "Como te llamas" nombre
+
+Esto quiere decir que consiga un input con el siguiente mensajes y se guarde en esta variable
+
+if (($var == 1)); then
+	echo "es uno"
+fi
+
+if (($var == 0)); then
+	echo "es cero"
+else
+	echo "no c"
+fi
+
+Podemos usar operadores logicos asi como && y ||

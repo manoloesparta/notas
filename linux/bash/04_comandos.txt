@@ -1,0 +1,11 @@
+El output que dejen unos comandos, los podemos guardar dentro de una variable usando $() que tambien pueden tener otros comandos dentro
+
+VAR=$(cd ~ $(pwd))
+echo $VAR
+
+Para hacer operaciones con numeros, osea operaciones aritmeticas, delcarando variables como enteros
+
+declare -i UNO=1+2
+echo $UNO
+
+DOS=`EXPR 1 + 2`

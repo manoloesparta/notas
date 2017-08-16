@@ -1,0 +1,62 @@
+Cero = verdadero
+Diferente de Cero = Falso
+
+Para usar condicionales se usa igual if y else
+
+if [ "$VAR" -eq 1 ]; then
+	echo "hola"
+else
+	echo "adios"
+fi
+
+Cuando usamos corchetes en bash necesitamos usr una especie de banderas para usarlas aqui una tabla de cuales son
+
+-eq ==
+ne !=
+-gt >
+-lt <
+-ge >=
+-le <=
+
+Tambien tenemos banderas para hacer cosas especificas
+
+-f busca archivo
+-a archivo existe
+
+En lugar de usar if tambien podemos usar case, que solo compara si es igual
+
+case $SCRIPT in
+	"VALOR1")
+		echo "seleccionaste valor1"
+		;;
+	"VALOR2")
+		echo "seleccinaste valor2"
+		;;
+	1)
+		echo "es un numero"
+		;;
+	*)
+		echo "seleccionaste $SCRIPT"
+		;;
+esac
+
+Igual que en todos los demas lenguajes de programacion existen ciclos, asi como while
+
+while test true
+do
+	echo "hola"
+done
+
+Ciclos until, hasta que esto se cumpla se va seguir ejecutando
+
+until true
+do
+	echo "hola"
+done
+
+Ciclos for
+
+for i in ls
+do
+	echo $i
+done
