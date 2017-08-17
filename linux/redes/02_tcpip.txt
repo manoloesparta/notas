@@ -1,0 +1,10 @@
+El protocolo TCP/IP lo primero que hace, es que la capa de aplicacion, presentacion y sesion en una capa, la capa de transaporte en una capa, la capa de red en una capa, y la capa del enlace y la capa fisica en una, un total de 4 capas.
+
+Se convierten en
+
+1. Capa de Aplicacion, HTTP SSH
+2. Capa de Transporte, TCP UDP
+3. Capa de Internet, IP ARP ICMP
+4. Capa de Vinculo, Ethernet Token
+
+El TCP/IP se enfoca a aplicaciones de servicio asi como sus ejemplos que tenemos a un lado

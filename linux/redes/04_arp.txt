@@ -1,0 +1,5 @@
+ARP es una tabla de asignaciones de direcciones MAC e IP (fisicas a ip). Cuando se comunica de IP a otra IP, no lo hace como direccion IP.
+
+Cuando se usa un switch, se crea una tabla diciendo mi ip y mi MAC address y del otro lado la ip del destinatario pero no se va saber su MAC address, entonces lo que hace es mandarlo a todos los hosts preguntando de quien es esta ip, y el host cuando responde ya da su MAC address y asi ya hacen la comunicacion entre dos hosts
+
+No verifica

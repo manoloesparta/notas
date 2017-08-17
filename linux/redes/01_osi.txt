@@ -1,0 +1,15 @@
+El modelo OSI es el modelo principal para las comunicaciones de red
+
+Capa 7 Aplicación: Servicio de red o aplicación
+
+Capa 6 Presentación: Entendimiento entre el emisor y el receptor
+
+Capa 5 Sesión: Establece y mantiene la comunicación entre las dos vías
+
+Capa 4 Transporte: Protocolo que se utilizará para el envió
+
+Capa 3 Red: Direccionamiento, en donde se enviará el paquete
+
+Capa 2 Enlace: Prepara el paquete para el envió
+
+Capa 1 Física: Transmisión de los paquetes en forma de bits
