@@ -1,0 +1,221 @@
+Siempre pensar en SQL como en una tabla o chart. Por alguna razon siempre escriben los comandos/keywords en mayusculas para no confundir con tablas/queries
+
+Acordarse que siempre, todos los querias van a terminar en punto y coma ;
+
+Las operaciones mas importantes que tiene una base de datos SQL son
+
+SELECT: muestra informacion de la tabla/base de datos
+UPDATE: actualiza informacion
+DELETE: borra informacion
+INSERT INTO: agrega informacion dentro de una tabla
+CREATE DATABASE: crea una base de datos
+ALTER DATABASE: cambia propiedades de una base de datos
+CREATE TABLE: crea una tabla
+ALTER TABLE: cambia propiedades de una base de datos
+DROP TABLE: borra una tabla, no solo la informacion
+CREATE INDEX: crea indices
+DROP INDEX: elimina indices
+
+Vamos a definirlos mas adelante.
+
+SELECT
+
+Este comando se usa para extraer columnas de informacion de una base de datos, se usa de la siguiente manera
+
+SELECT columna1, colmuna2, ... FROM tabla;
+
+e.j. SELECT nombre FROM empleados;
+
+Especifamos que columnas queremos y la tabla de la que tienen que checar
+
+Por ejemplo si queremos que nos muestre todas las columnas simplemente utilizamos el caractere para dirigirnos a todo *
+
+SELECT * FROM tabla;
+
+SELECT DISTINCT
+
+Sirve casi igual que SELECT pero este comando solo muestra una vez un mismo valor aunque este repetido, se usa igual
+
+SELECT DISTINCT columna1, columna2, ... FROM tabla;
+
+e.j. SELECT DISTINCT pais_natal FROM visitantes;
+
+WHERE
+
+Este comando se usa con SELECT, sirve para filtrar los resultados con la condicion que se de, aqui no se usa == se usa = para referirse a comparacion no como en programacion
+
+SELECT columna1, columna2, ... FROM tabla WHERE condicion;
+
+e.j. SELECT * FROM estudiantes WHERE Nivel='Primaria';
+
+Estos son los posibles operadores relacionales que se usan con el comando
+
+=	Igual
+<>	Diferente (aveces se encuentra como !=)
+>	Mayor que
+<	Menor que
+>=	Mayor o igual que
+<=	Menor o igual que
+
+AND, OR, NOT
+
+Cuando usamos WHERE y queremos ser mas especificos usamos otros operadores logicos como estos
+
+Usamos AND cuando queramos que se cumplan todas las condiciones
+
+SELECT columna1, columna2, ... FROM tabla WHERE condicion1 AND condicion2 AND condicion3 ...;
+
+e.j. SELECT nombre FROM humanos WHERE edad=10 AND estatura=1.5;
+
+Usamos OR cuando queramos que solo una o varias condiciones se cumplan
+
+SELECT columna1, columna2, ... FROM tabla WHERE condicion1 OR condicion2 OR condicion3 ...;
+
+e.j. SELECT plumon FROM material WHERE propietario='nadie' OR uso='no';
+
+Usamos NOT para que se busque todo lo que no tenga esto
+
+SELECT columna1, columna2, ... FROM table_name WHERE NOT condicion;
+
+e.j. SELECT nombres FROM personas WHERE NOT apellido='Trump';
+
+ORDER BY
+
+Esta es una opcion que usamos con SELECT para decirle de que manera queremos que nos ordene los datos que extrae.
+
+Cuando usamos ASC los imprime de forma ascendete (alfabeticament), y si usamos DESC lo hace de la manera contraria
+
+SELECT columna1, columna2, ... FROM tabla ORDER BY columna1, columna2, ... ASC|DESC;
+
+SELECT * FROM meseros ORDER BY apellido;
+
+INSER INTO
+
+Esto es para llenar nuestra tabla de datos, sirve para insertar informacion
+
+INSERT INTO tabla VALUES (valor1, valor2, valor3, ...);
+
+e.j. INSERT INTO empleados VALUES ('Manuel', 'Esparza','17');
+
+Se usa de esa manera cuando se van a llenar todos los campos pero cuando solo son algunos se usa asi
+
+INSERT INTO tabla (columna1, columna2, columna3, ...) VALUES (valor1, valor2, valor3, ...);
+
+e.j. INSERT INTO empleados (nombre, apellido, edad) VALUES ('Manuel', 'Esparza', 17)
+
+NULL 
+
+NULL no es tanto un comando sino un tipo de dato, signifca que no hay nada y no podemos usar ningun operador relacional con esa clase de valores, tenemos que usar operadores como IS NULL o IS NOT NULL
+
+IS NULL se usa con WHERE como una condicion, y muestra los valores que son NULL 
+
+SELECT columna1, columna2, ... FROM tabla WHERE columna IS NULL;
+
+e.j. SELECT nombre FROM personas WHERE sexo IS NULL;
+
+IS NOT NULL tambien se usa igual que IS NULL pero este da todo lo contrario, solo da valores que no tengan NULL
+
+SELECT columna1, columna2, ... FROM tabla WHERE columna IS NOT NULL;
+
+e.j. SELECT nombre FROM personas WHERE edad IS NOT NULL;
+
+UPDATE
+
+Este sirve para cambiar informacion que ya tenemos. Esto se puede usar sobre uno a mas registros
+
+UPDATE tabla SET columna1 = valor1, columna2 = valor2, ... WHERE condicion;
+
+e.j. UPDATE personas SET nombre = 'Jose', Apellido = 'Falpe' WHERE persona_id=82
+
+DELETE
+
+Esto sirve para borrar registros en la base de datos
+
+DELETE FROM tabla WHERE condicion;
+
+e.j. DELETE FROM empleados WHERE estado='despedido';
+
+Tambien se pueden borrar todos los registros de la tabla asi
+
+DELETE FROM tabla;
+
+SELECT TOP
+
+Esto te devuelve los valores de hasta arriba de una tabla especificando cuantos van a ser
+
+SELECT TOP numero columna1, columna2, ... FROM tabla;
+
+e.j. SELECT TOP 3 * FROM alumnos;
+
+MIN()
+
+Te da el valor mas bajo de una columna
+
+SELECT MIN(columna) FROM tabla;
+
+e.j. SELECT MIN(precio) FROM productos;
+
+MAX()
+
+Te da el valor mas alto de una columna
+
+SELECT MAX(columna) FROM tabla;
+
+e.j. SELECT MAX(estatura) FROM personas;
+
+COUNT()
+
+Te devuelve el numero de filas 
+
+SELECT COUNT(columna) FROM tabla;
+
+e.j. SELECT COUNT(personas_id) FROM personas;
+
+AVG()
+
+Te devuelve el promedio de una columna numerica
+
+SELECT AVG(columna) FROM tabla;
+
+e.j. SELECT AVG(edad) FROM estudiantes_primaria
+
+SUM()
+
+Te devuelve la suma de toda una columna numerica
+
+SELECT SUM(columna) FROM tabla;
+
+e.j. SELECT SUM(dinero) FROM familias;
+
+BETWEEN
+
+Te muestra solo los resultados de cierto rango
+
+SELECT columna1, columna2, ... FROM tabla WHERE columna BETWEEN valor1 AND valor2;
+
+e.j. SELECT * FROM jovenes WHERE edades BETWEEN 10 AND 20;
+
+AS
+
+Este comando te deja crear alias y sirven solo dentro del mismo query no se quedan guardados unas vez que se ejecuta el query
+
+SELECT columna AS alias FROM tabla;
+
+e.j. SELECT clienteid as id, clientenombre AS cliente FROM clientes;
+
+JOIN 
+
+Los joins es lo que crea la relacion en los datos dentro de una base de datos y existen muchos tipos como
+
+INNER: regresa datos que coinciden en ambas tablas
+LEFT: regresa todos los datos de la tabla1 y tambien con los que coincidio con la tabla2
+RIGHT: regresa todos los datos de la tabla2 y tambien con los que coincidio con la tabla1
+FULL: devuelve todos los datos, cuando hay una coinciden datos
+
+INNER JOIN
+
+Este va retornar los datos que coinciden en ambas tablas
+
+SELECT columna1, columna2, ... FROM tabla1 INNER JOIN tabla2 ON tabla1.columna = tabla2.columna;
+
+e.j. SELECT Ordenes.ordenid, Clientes.nombre FROM Ordenes INNER JOIN Clientes ON Ordenes.ordenid = Clientes.ordenid;
