@@ -1,4 +1,0 @@
-Siempre vamos a usar librerias como pandas, matplotlib, numpy, sckit-learn o tensorflow
-
-La expresion dormir datos significa conocer tus datos, saber todo sobre el dataset, para tocar todos los temas todo vamos a describir el jupyter notebook en la carpeta dormir_datos
-
