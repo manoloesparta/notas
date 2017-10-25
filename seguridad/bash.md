@@ -42,5 +42,95 @@ Asi se delcaran integers porque todo lo toma como string aunque no este entre co
 ```
 declare -i NUM
 NUM=7
+
+SUMA=`expr 7 + 5`
+echo $SUMA
 ```
 ## Comandos
+Cuando usamos comandos en bash necesitmos usar tildes agudas o el simbolo para invocar variables
+```
+COMANDO=`pwd`
+COMMAND=$(ls $UNO)
+```
+## Control de flujo
+Son los comandos if else solo que es este caso se usa diferentes operadores entre string e ints, 0 es verdadero y n es verdadero
+```
+#!/bin/bash
+read NUMERO
+if [ $NUMERO == 1 ]; then
+	echo "seleccionaste el numero 1";
+else
+	echo "seleccionaste el numero $NUMERO"
+fi
+```
+
+Para crear y buscar archivos
+
+```
+pwd=$(pwd)
+read ARCHIVO
+if [ -f $ARCHIVO]; then
+	cat $archivo
+elif [ $ARCHIVO == "/dir/readme.md" ]
+	touch $ARCHIVO
+	if [ -f $ARCHIVO ]; then
+		echo "Archivo creado exitosamente"
+	fi
+else
+	echo "No existe"
+fi
+```
+
+Usar case/switch
+
+```
+read VAR
+case $VAR in
+	"Hola")
+		echo "es hola"
+		;;
+	"Adios")
+		echo "es adios"
+		;;
+	*)
+		echo "no c"
+		;;
+esac
+```
+## Ciclos
+while
+```
+declare -i VALOR
+VALOR=1
+while [ $VALOR < 10 ]
+do
+	echo $VALOR
+	let $VALOR+=1
+done
+```
+until
+```
+declare -i VALOR
+VALOR=1
+until [ $VALOR > 10 ]
+do
+	echo $VALOR
+	let $VALOR+=1
+done
+```
+for
+```
+pwd=$(pwd)
+for i in `ls`
+do
+	echo $i
+done
+```
+## Funciones
+```
+funcion_hola(){
+	echo "Hola"
+	echo $1
+}
+funcion_hola argumento
+```
