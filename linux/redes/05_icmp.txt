@@ -1,6 +1,0 @@
-ICMP = Internet Control Message Protocol
-Permite administrar errores del protocolo IP.
-
-PING = Packet INternet Grouper
-Tiene origen de los sonares de los submarinos, que envían una señal sonora para detectar si hay algún obstáculo.
-En este caso se puede detectar si hay conectividad entre hosts, el tiempo que tardan en llegar los paquetes después de la solicitud y los paquetes dañados.

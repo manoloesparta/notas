@@ -1,9 +1,0 @@
-El DNS Domain Name System lo crearon para que un nombre tomen el valor de alguna IP.
-
-Se crea un archivo /etc/hosts en el que especifica una ip y su nombre que se usa, asi como 127.0.0.1 se tiene como localhost, y asi le puedo agregar yo mas ip y con su respectivo dominio
-
-Podemos usar nslookup para hacer consultas a un DNS, solamente ponemos una ip y nos va dar los datos dentro de el equipo
-
-Si usamos el comando host sobre una ip en el arpanet nos devuelve el domain 
-
-Con el comando dig nos da informacion de un dominio, asi com si ip y time to live

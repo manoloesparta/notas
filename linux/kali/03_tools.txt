@@ -1,9 +1,0 @@
-NetCat
-
-Con netcat hacer una comunicación cliente servidor con Netcat, se usa con el comando $nc
-
-Para abrir un puerto usamos
-
-nc -l -v -p 8080
-
-Eso comando lo que hace es abrir el puerto 8080 en modo listening (-l) y verbose (-v) que significa que muestra lo que esta haciendo, cuando no le damos un hostname, se esta usando localhost o 127.0.0.1

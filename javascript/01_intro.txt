@@ -1,4 +1,4 @@
-Javascript es un lenguaje de programacion que se corre del lado del servidor
+Javascript es un lenguaje de programacion que se corre del lado del cliente
 
 Ahora ya no se necesita usar ; al final de cada linea
 
